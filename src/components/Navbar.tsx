@@ -1,4 +1,4 @@
-import { Box, Link, styled } from "@mui/material";
+import { Box, Link, styled, Typography } from "@mui/material";
 
 const menu = [
 	{ menu: "Home", link: "/home" },
@@ -22,7 +22,6 @@ const Nav = styled(Box)(({ theme }) => ({
 		justifyContent: "space-between",
 		alignItems: "center",
 		height: "80px",
-		border: "1px solid red",
 	},
 }));
 
@@ -37,7 +36,11 @@ const Navbar = () => {
 	return (
 		<Header>
 			<Nav>
-				<Box>Nanang Setiawan</Box>
+				<Box>
+					<Typography variant="h6" fontWeight={500}>
+						Nanang Setiawan
+					</Typography>
+				</Box>
 
 				<Menu>
 					{menu.map((e) => {
