@@ -29,7 +29,9 @@ const Menu = styled(Box)(({ theme }) => ({
 	display: "flex",
 	flexDirection: "row",
 	alignItems: "center",
-	gap: 20,
+	gap: 40,
+	fontWeight: 500,
+	fontSize: "20px",
 }));
 
 const Navbar = () => {
@@ -37,7 +39,7 @@ const Navbar = () => {
 		<Header>
 			<Nav>
 				<Box>
-					<Typography variant="h6" fontWeight={500}>
+					<Typography variant="h5" fontWeight={500}>
 						Nanang Setiawan
 					</Typography>
 				</Box>
