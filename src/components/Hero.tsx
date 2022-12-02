@@ -21,6 +21,7 @@ const BoxAbout = styled(Box)(({ theme }) => ({
 const BoxMedia = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.down("sm")]: {
 		flex: "0 0 10%",
+		paddingLeft: "25px",
 	},
 }));
 

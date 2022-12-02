@@ -1,4 +1,4 @@
-import { Box, Link, styled, Typography } from "@mui/material";
+import { AppBar, Box, Link, styled, Typography } from "@mui/material";
 
 const menu = [
 	{ menu: "Home", link: "/home" },
@@ -8,8 +8,9 @@ const menu = [
 	{ menu: "Contact", link: "/home" },
 ];
 
-const Header = styled(Box)(({ theme }) => ({
+const Header = styled(AppBar)(({ theme }) => ({
 	position: "sticky",
+	backgroundColor: "rgba(0%, 0%, 0%, 0)",
 }));
 
 const Nav = styled(Box)(({ theme }) => ({
@@ -36,10 +37,10 @@ const Menu = styled(Box)(({ theme }) => ({
 
 const Navbar = () => {
 	return (
-		<Header>
+		<Header elevation={0} color="secondary">
 			<Nav>
 				<Box>
-					<Typography variant="h5" fontWeight={500}>
+					<Typography variant="h5" fontWeight={500} color={"primary"}>
 						Nanang Setiawan
 					</Typography>
 				</Box>
