@@ -1,14 +1,54 @@
 import { Box, Button, styled, Typography } from "@mui/material";
 import aimyon from "../assets/Aimyon.jpeg";
 
-const BoxMain = styled(Box)(({ theme }) => ({}));
+const BoxMain = styled(Box)(({ theme }) => ({
+	height: "90vh",
+	[theme.breakpoints.down("sm")]: {
+		marginTop: "50px",
+		// border: "1px solid red",
+		minHeight: "90vh",
+	},
+}));
 
 const SubBox = styled(Box)(({ theme }) => ({
-	display: "flex",
-	flexDirection: "row",
-	padding: "100px",
-	border: "1px solid red",
-	gap: 70,
+	[theme.breakpoints.up("lg")]: {
+		display: "flex",
+		flexDirection: "row",
+		padding: "100px",
+		// border: "1px solid yellow",
+		gap: 70,
+	},
+
+	[theme.breakpoints.down("sm")]: {
+		display: "flex",
+		flexDirection: "column",
+		border: "1px solid black",
+
+		// justifyContent: "center",
+		// alignContent: "center",
+		// padding: 0,
+		// marginTop: "20px",
+		// border: "1px solid yellow",
+	},
+}));
+
+const ImageBorder = styled(Box)(({ theme }) => ({
+	[theme.breakpoints.up("lg")]: {
+		border: "1px solid cyan",
+		width: "40%",
+	},
+
+	[theme.breakpoints.up("xs")]: {
+		display: "flex",
+		justifyContent: "center",
+		marginTop: 80,
+	},
+}));
+
+const ImageBox = styled(Box)(({ theme }) => ({
+	[theme.breakpoints.up("lg")]: {},
+
+	[theme.breakpoints.down("xs")]: {},
 }));
 
 const About = () => {
@@ -22,26 +62,35 @@ const About = () => {
 			</Typography>
 
 			<SubBox>
-				<Box
-					sx={{
-						width: "40%",
-					}}
+				<ImageBorder
+					sx={
+						{
+							// width: { xs: "100%", lg: "40%" },
+							// border: "1px solid green",
+						}
+					}
 				>
 					<Box
 						component="img"
-						height={500}
-						width={500}
 						alt="profil"
 						src={aimyon}
-						sx={{ borderRadius: "30px" }}
+						sx={{
+							borderRadius: "30px",
+							height: { xs: "300px", lg: "500px" },
+							width: { xs: "300px", lg: "500px" },
+						}}
 					/>
-				</Box>
+				</ImageBorder>
 
 				<Box
 					display="flex"
 					flexDirection={"column"}
 					justifyContent={"space-between"}
-					sx={{ width: "50%", padding: 5 }}
+					sx={{
+						width: { lg: "50%", xs: "100%" },
+						padding: 5,
+						border: "1px solid blue",
+					}}
 				>
 					<Box sx={{ display: "flex", flexDirection: "row", gap: 5 }}>
 						<Box
