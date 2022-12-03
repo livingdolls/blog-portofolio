@@ -10,14 +10,14 @@ const menu = [
 
 const Header = styled(AppBar)(({ theme }) => ({
 	position: "sticky",
-	backgroundColor: "rgba(0%, 0%, 0%, 0)",
+	backgroundColor: [theme.palette.background.default],
 }));
 
 const Nav = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.up("xs")]: {
 		display: "none",
 	},
-	[theme.breakpoints.up("sm")]: {
+	[theme.breakpoints.up("md")]: {
 		display: "flex",
 		flexDirection: "row",
 		justifyContent: "space-between",

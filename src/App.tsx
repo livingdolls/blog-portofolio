@@ -1,5 +1,5 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import Layout from "./components/Layout";
+import Layout from "./Layout";
 
 const materialRed = createTheme({
 	palette: {

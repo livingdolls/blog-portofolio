@@ -9,51 +9,36 @@ import {
 } from "@mui/material";
 
 const BoxMain = styled(Box)(({ theme }) => ({
-	height: "80vh",
-	border: "1px solid yellow",
 	padding: "100px",
+	paddingTop: 0,
 
-	[theme.breakpoints.down("sm")]: {
-		marginTop: 150,
+	[theme.breakpoints.down("lg")]: {
+		marginTop: 100,
 		padding: "10px",
 	},
 }));
 
 const BoxSkill = styled(Box)(({ theme }) => ({
-	[theme.breakpoints.down("lg")]: {
-		display: "flex",
+	display: "flex",
+	marginTop: 50,
+	[theme.breakpoints.down("md")]: {
 		flexDirection: "column",
-		border: "1px solid orange",
 		alignItems: "center",
 		justifyContent: "space-around",
-		height: "50vh",
 		gap: 10,
 	},
 
-	[theme.breakpoints.up("lg")]: {
-		display: "flex",
+	[theme.breakpoints.up("md")]: {
 		flexDirection: "row",
-		border: "1px solid cyan",
-		alignItems: "center",
 		justifyContent: "space-around",
-		height: "50vh",
-		gap: 10,
-	},
-
-	[theme.breakpoints.down("sm")]: {
-		display: "flex",
-		flexDirection: "column",
-		border: "1px solid blue",
-		alignItems: "center",
-		height: "50vh",
-		justifyContent: "center",
+		padding: "50px",
 		gap: 10,
 	},
 }));
 
 const BoxSub = styled(Box)(({ theme }) => ({
+	boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
 	[theme.breakpoints.down("lg")]: {
-		border: "1px solid red",
 		backgroundColor: "#fff",
 		padding: "10px",
 		width: "100%",
@@ -61,7 +46,6 @@ const BoxSub = styled(Box)(({ theme }) => ({
 
 	[theme.breakpoints.up("lg")]: {
 		width: "40%",
-		border: "1px solid green",
 		backgroundColor: "#fff",
 		padding: "20px",
 	},
@@ -71,7 +55,7 @@ const Skill = () => {
 	return (
 		<BoxMain>
 			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
-				Skill
+				Skills
 			</Typography>
 			<Typography variant="h6" fontWeight={300} textAlign={"center"}>
 				Best Skill Me
@@ -84,6 +68,16 @@ const Skill = () => {
 					</Typography>
 
 					<List>
+						<ListItem>
+							<ListItemIcon>C</ListItemIcon>
+							<ListItemText primary={"HTML"} />
+						</ListItem>
+
+						<ListItem>
+							<ListItemIcon>C</ListItemIcon>
+							<ListItemText primary={"HTML"} />
+						</ListItem>
+
 						<ListItem>
 							<ListItemIcon>C</ListItemIcon>
 							<ListItemText primary={"HTML"} />

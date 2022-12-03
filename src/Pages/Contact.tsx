@@ -1,20 +1,31 @@
 import { Box, Button, styled, TextField, Typography } from "@mui/material";
+import MainButton from "../components/Button";
 
 const MainBox = styled(Box)(({ theme }) => ({
 	display: "flex",
 	flexDirection: "row",
 	gap: 20,
 	padding: "50px",
-	border: "1px solid black",
 	marginTop: "100px",
 	justifyContent: "center",
+
+	[theme.breakpoints.down("sm")]: {
+		display: "flex",
+		flexDirection: "column",
+		padding: 0,
+	},
 }));
 
 const SuBox = styled(Box)(({ theme }) => ({
-	border: "1px solid red",
 	display: "flex",
 	flexDirection: "column",
 	padding: "20px",
+	[theme.breakpoints.up("lg")]: {
+		width: "40%",
+	},
+	[theme.breakpoints.down("sm")]: {
+		widht: "100%",
+	},
 }));
 
 const SearchBox = styled(TextField)(() => ({
@@ -26,17 +37,18 @@ const SearchBox = styled(TextField)(() => ({
 	},
 }));
 
+const SubBox = styled(Box)(({ theme }) => ({
+	minHeight: "80vh",
+	display: "flex",
+	flexDirection: "column",
+	justifyContent: "center",
+	alignContent: "center",
+	marginTop: 10,
+}));
+
 const Contact = () => {
 	return (
-		<Box
-			minHeight={"80vh"}
-			display={"flex"}
-			flexDirection={"column"}
-			justifyContent={"center"}
-			alignContent={"center"}
-			marginTop={10}
-			sx={{ border: "1px solid cyan" }}
-		>
+		<SubBox>
 			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
 				Contact Me
 			</Typography>
@@ -45,9 +57,9 @@ const Contact = () => {
 			</Typography>
 
 			<MainBox>
-				<SuBox sx={{ width: "40%" }}></SuBox>
+				<SuBox></SuBox>
 
-				<SuBox gap={3} sx={{ width: "40%" }}>
+				<SuBox gap={3}>
 					<Typography
 						variant="h6"
 						fontWeight={500}
@@ -56,22 +68,12 @@ const Contact = () => {
 						Send Me Message
 					</Typography>
 					<SearchBox label="Your name" />
-					<TextField size="medium" label="Your Email" />
-					<TextField label="Your message" multiline rows={5} />
-					<Button
-						variant="contained"
-						color="primary"
-						sx={{
-							height: "70px",
-							width: "200px",
-							borderRadius: "15px",
-						}}
-					>
-						Send Message
-					</Button>
+					<SearchBox size="medium" label="Your Email" />
+					<SearchBox label="Your message" multiline rows={5} />
+					<MainButton>Send Message</MainButton>
 				</SuBox>
 			</MainBox>
-		</Box>
+		</SubBox>
 	);
 };
 

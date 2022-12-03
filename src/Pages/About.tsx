@@ -1,54 +1,56 @@
 import { Box, Button, styled, Typography } from "@mui/material";
 import aimyon from "../assets/Aimyon.jpeg";
+import MainButton from "../components/Button";
 
 const BoxMain = styled(Box)(({ theme }) => ({
-	height: "90vh",
+	height: "80vh",
 	[theme.breakpoints.down("sm")]: {
 		marginTop: "50px",
-		// border: "1px solid red",
 		minHeight: "90vh",
 	},
 }));
 
 const SubBox = styled(Box)(({ theme }) => ({
-	[theme.breakpoints.up("lg")]: {
+	[theme.breakpoints.up("md")]: {
 		display: "flex",
 		flexDirection: "row",
 		padding: "100px",
-		// border: "1px solid yellow",
 		gap: 70,
 	},
 
 	[theme.breakpoints.down("sm")]: {
 		display: "flex",
 		flexDirection: "column",
-		border: "1px solid black",
-
-		// justifyContent: "center",
-		// alignContent: "center",
-		// padding: 0,
-		// marginTop: "20px",
-		// border: "1px solid yellow",
 	},
 }));
 
 const ImageBorder = styled(Box)(({ theme }) => ({
-	[theme.breakpoints.up("lg")]: {
-		border: "1px solid cyan",
+	[theme.breakpoints.up("md")]: {
 		width: "40%",
+		marginTop: 0,
 	},
 
-	[theme.breakpoints.up("xs")]: {
+	[theme.breakpoints.between("xs", "md")]: {
 		display: "flex",
 		justifyContent: "center",
 		marginTop: 80,
 	},
 }));
 
-const ImageBox = styled(Box)(({ theme }) => ({
-	[theme.breakpoints.up("lg")]: {},
+const BoxInfo = styled(Box)(({ theme }) => ({
+	display: "flex",
+	flexDirection: "column",
+	[theme.breakpoints.up("md")]: {
+		justifyContent: "space-between",
+		gap: 40,
+	},
 
-	[theme.breakpoints.down("xs")]: {},
+	[theme.breakpoints.between("xs", "md")]: {
+		marginTop: 20,
+		gap: 40,
+		paddingLeft: 20,
+		paddingRight: 20,
+	},
 }));
 
 const About = () => {
@@ -62,14 +64,7 @@ const About = () => {
 			</Typography>
 
 			<SubBox>
-				<ImageBorder
-					sx={
-						{
-							// width: { xs: "100%", lg: "40%" },
-							// border: "1px solid green",
-						}
-					}
-				>
+				<ImageBorder>
 					<Box
 						component="img"
 						alt="profil"
@@ -82,16 +77,7 @@ const About = () => {
 					/>
 				</ImageBorder>
 
-				<Box
-					display="flex"
-					flexDirection={"column"}
-					justifyContent={"space-between"}
-					sx={{
-						width: { lg: "50%", xs: "100%" },
-						padding: 5,
-						border: "1px solid blue",
-					}}
-				>
+				<BoxInfo>
 					<Box sx={{ display: "flex", flexDirection: "row", gap: 5 }}>
 						<Box
 							sx={{
@@ -124,27 +110,19 @@ const About = () => {
 							24/7 Learning
 						</Box>
 					</Box>
-					<Typography variant="body1" textAlign={"justify"}>
+					<Typography
+						variant="body1"
+						textAlign={"justify"}
+						fontSize={20}
+					>
 						Lorem Ipsum is simply dummy text of the printing and
 						typesetting industry. Lorem Ipsum has been the
 						industry's standard dummy text ever since the 1500s,
 						when an unknown printer took a galley of type and
 						scrambled it to make a type specimen book. It has
-						survived not only five centuries, but also the leap into
-						electronic typesetting, remaining essentially unchanged.
-						It was popularised in the 1960s with the release of
-						Letraset sheets containing Lorem Ipsum passages, and
-						more recently with desktop publishing software like
-						Aldus PageMaker including versions of Lorem Ipsum.
 					</Typography>
-					<Button
-						variant="contained"
-						color="primary"
-						sx={{ height: "70px", width: "200px" }}
-					>
-						Download CV
-					</Button>
-				</Box>
+					<MainButton>Download CV</MainButton>
+				</BoxInfo>
 			</SubBox>
 		</BoxMain>
 	);

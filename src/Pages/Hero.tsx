@@ -1,20 +1,26 @@
 import { Box, Button, Divider, styled, Typography } from "@mui/material";
 import aimyon from "../assets/Aimyon.jpeg";
 import facebook from "../assets/home.svg";
+import MainButton from "../components/Button";
 
 const MainHero = styled(Box)(({ theme }) => ({
-	height: "90vh",
+	height: "95vh",
 	display: "flex",
 	flexDirection: "row",
 	flexWrap: "wrap",
 	alignContent: "center",
+
+	[theme.breakpoints.down("md")]: {
+		marginTop: 50,
+	},
 }));
 
 const BoxAbout = styled(Box)(({ theme }) => ({
-	[theme.breakpoints.down("sm")]: {
+	[theme.breakpoints.down("md")]: {
 		flex: "0 0 100%",
 		order: 2,
 	},
+
 	padding: "25px",
 }));
 
@@ -26,16 +32,13 @@ const BoxMedia = styled(Box)(({ theme }) => ({
 }));
 
 const BoxPhoto = styled(Box)(({ theme }) => ({
-	[theme.breakpoints.down("sm")]: {
+	[theme.breakpoints.down("md")]: {
 		flex: "0 0 90%",
 	},
+	[theme.breakpoints.up("md")]: {
+		width: "35%",
+	},
 	padding: "25px",
-}));
-
-const ACButton = styled(Button)(({ theme }) => ({
-	height: "100px",
-	width: "200px",
-	borderRadius: 8,
 }));
 
 const BorderImg = styled(Button)(({ theme }) => ({
@@ -47,6 +50,16 @@ const BorderImg = styled(Button)(({ theme }) => ({
 		borderLeft: "none",
 	},
 	borderLeft: `10px solid ${theme.palette.primary.main}`,
+}));
+
+const NamaTypo = styled(Typography)(({ theme }) => ({
+	[theme.breakpoints.down("md")]: {
+		fontSize: "40px",
+	},
+	[theme.breakpoints.up("md")]: {
+		fontSize: "65px",
+		fontWeight: 600,
+	},
 }));
 
 const Hero = () => {
@@ -92,9 +105,7 @@ const Hero = () => {
 			{/* About Me */}
 			<BoxAbout sx={{ width: "55%" }}>
 				<Box display={"flex"} flexDirection="column" gap={4}>
-					<Typography variant="h2" fontWeight={600}>
-						Setiawan Nanang
-					</Typography>
+					<NamaTypo>Setiawan Nanang</NamaTypo>
 
 					<Divider textAlign="right" sx={{ width: "50%" }}>
 						<Typography variant="h5">WEB DEVELOPER</Typography>
@@ -105,18 +116,12 @@ const Hero = () => {
 						typesetting industry. Lorem Ipsum has been the
 						industry's standard dummy text ever since the 1500s,
 					</Typography>
-					<ACButton
-						variant="contained"
-						color="primary"
-						sx={{ height: "70px", weight: "150px" }}
-					>
-						Contact Me
-					</ACButton>
+					<MainButton>Contact Me</MainButton>
 				</Box>
 			</BoxAbout>
 
 			{/* Photo */}
-			<BoxPhoto sx={{ width: "35%" }}>
+			<BoxPhoto>
 				<Box display="flex" justifyContent={"center"}>
 					<BorderImg>
 						<img

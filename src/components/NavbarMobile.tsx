@@ -27,13 +27,13 @@ const MainBottom = styled(Box)(({ theme }) => ({
 		right: 0,
 		left: 0,
 	},
-	[theme.breakpoints.up("sm")]: {
+	[theme.breakpoints.up("md")]: {
 		display: "none",
 	},
 }));
 
 const BottomNav = styled(Box)(({ theme }) => ({
-	height: "40px",
+	height: "60px",
 	display: "flex",
 	padding: "10px",
 	flexDirection: "row",
@@ -53,7 +53,7 @@ const ModalBottom = styled(Box)(({ theme }) => ({
 		padding: "25px",
 		paddingTop: "50px",
 	},
-	[theme.breakpoints.up("sm")]: {
+	[theme.breakpoints.up("md")]: {
 		display: "none",
 	},
 }));
@@ -66,7 +66,7 @@ const MenuItem = styled(Box)(({ theme }) => ({
 		alignItems: "center",
 		alignConten: "center",
 	},
-	[theme.breakpoints.up("sm")]: {
+	[theme.breakpoints.up("md")]: {
 		display: "none",
 	},
 }));
@@ -76,7 +76,9 @@ const NavbarMobile = () => {
 	return (
 		<MainBottom>
 			<BottomNav>
-				<Typography variant="body1">Nanang Setiawan</Typography>
+				<Typography variant="body1" fontWeight={500} fontSize={20}>
+					Nanang Setiawan
+				</Typography>
 				<Button
 					onClick={() => {
 						setOpen(true);
