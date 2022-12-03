@@ -4,7 +4,7 @@ import facebook from "../assets/home.svg";
 import MainButton from "../components/Button";
 
 const MainHero = styled(Box)(({ theme }) => ({
-	height: "95vh",
+	minHeight: "95vh",
 	display: "flex",
 	flexDirection: "row",
 	flexWrap: "wrap",
@@ -105,16 +105,33 @@ const Hero = () => {
 			{/* About Me */}
 			<BoxAbout sx={{ width: "55%" }}>
 				<Box display={"flex"} flexDirection="column" gap={4}>
-					<NamaTypo>Setiawan Nanang</NamaTypo>
+					<Box>
+						<NamaTypo>Hi,</NamaTypo>
+						<NamaTypo sx={{ display: "inline-block" }}>
+							I'm Setiawan
+						</NamaTypo>
+						<NamaTypo
+							sx={{
+								display: "inline-block",
+								ml: { sm: ".5rem" },
+							}}
+							color="primary"
+						>
+							Nanang
+						</NamaTypo>
+					</Box>
 
 					<Divider textAlign="right" sx={{ width: "50%" }}>
-						<Typography variant="h5">WEB DEVELOPER</Typography>
+						<Typography variant="h5">
+							FULLSTACK WEB DEVELOPER
+						</Typography>
 					</Divider>
 
 					<Typography variant="h6" fontWeight={400}>
-						Lorem Ipsum is simply dummy text of the printing and
-						typesetting industry. Lorem Ipsum has been the
-						industry's standard dummy text ever since the 1500s,
+						I'm from Semarang and i'm a fullstack web developer with
+						a passion for solving problems and learning new things.
+						I've been freelancing for the last 2 years, and right
+						now i am looking forward to working with you!.
 					</Typography>
 					<MainButton>Contact Me</MainButton>
 				</Box>

@@ -1,10 +1,11 @@
 import { Button, styled } from "@mui/material";
 
 const ButtonMain = styled(Button)(({ theme }) => ({
-	borderRadius: "5px",
+	borderRadius: "7px",
 	[theme.breakpoints.up("md")]: {
 		height: 70,
-		width: 180,
+		width: 200,
+		fontSize: 20,
 	},
 
 	[theme.breakpoints.between("xs", "md")]: {

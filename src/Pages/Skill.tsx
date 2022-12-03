@@ -51,6 +51,16 @@ const BoxSub = styled(Box)(({ theme }) => ({
 	},
 }));
 
+const SkillTypo = styled(Typography)(({ theme }) => ({
+	fontSize: "20px",
+	fontWeight: 600,
+	textAlign: "center",
+	color: [theme.palette.primary.main],
+	[theme.breakpoints.down("lg")]: {},
+
+	[theme.breakpoints.up("lg")]: {},
+}));
+
 const Skill = () => {
 	return (
 		<BoxMain>
@@ -63,9 +73,7 @@ const Skill = () => {
 
 			<BoxSkill>
 				<BoxSub>
-					<Typography variant={"h4"} textAlign={"center"}>
-						FrontEnd
-					</Typography>
+					<SkillTypo variant={"h6"}>FRONT-END</SkillTypo>
 
 					<List>
 						<ListItem>
@@ -75,45 +83,56 @@ const Skill = () => {
 
 						<ListItem>
 							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"HTML"} />
+							<ListItemText primary={"CSS"} />
 						</ListItem>
 
 						<ListItem>
 							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"HTML"} />
+							<ListItemText primary={"Javascript"} />
 						</ListItem>
 
 						<ListItem>
 							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"HTML"} />
+							<ListItemText primary={"React JS"} />
 						</ListItem>
 
 						<ListItem>
 							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"HTML"} />
+							<ListItemText primary={"Material UI"} />
+						</ListItem>
+
+						<ListItem>
+							<ListItemIcon>C</ListItemIcon>
+							<ListItemText primary={"Boostrap"} />
 						</ListItem>
 					</List>
 				</BoxSub>
 
 				<BoxSub>
-					<Typography variant={"h4"} textAlign={"center"}>
-						BackEnd
-					</Typography>
+					<SkillTypo variant={"h6"}>BACK-END</SkillTypo>
 
 					<List>
 						<ListItem>
 							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"HTML"} />
+							<ListItemText primary={"PHP Native"} />
 						</ListItem>
 
 						<ListItem>
 							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"HTML"} />
+							<ListItemText primary={"Express JS"} />
 						</ListItem>
 
 						<ListItem>
 							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"HTML"} />
+							<ListItemText primary={"Laravel"} />
+						</ListItem>
+						<ListItem>
+							<ListItemIcon>C</ListItemIcon>
+							<ListItemText primary={"REST API"} />
+						</ListItem>
+						<ListItem>
+							<ListItemIcon>C</ListItemIcon>
+							<ListItemText primary={"MySql"} />
 						</ListItem>
 					</List>
 				</BoxSub>

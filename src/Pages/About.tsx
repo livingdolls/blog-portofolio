@@ -3,10 +3,10 @@ import aimyon from "../assets/Aimyon.jpeg";
 import MainButton from "../components/Button";
 
 const BoxMain = styled(Box)(({ theme }) => ({
-	height: "80vh",
+	minHeight: "80vh",
 	[theme.breakpoints.down("sm")]: {
 		marginTop: "50px",
-		minHeight: "90vh",
+		// minHeight: "90vh",
 	},
 }));
 

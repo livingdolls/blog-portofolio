@@ -1,4 +1,4 @@
-import { Box, Container, styled } from "@mui/material";
+import { Container } from "@mui/material";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Footer from "./components/Footer";
