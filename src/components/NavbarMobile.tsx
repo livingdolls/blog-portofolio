@@ -5,20 +5,18 @@ import {
 	Link,
 	Slide,
 	styled,
+	Tooltip,
 	Typography,
 } from "@mui/material";
 import { useState } from "react";
-import home from "../assets/home.svg";
-import close from "../assets/close.svg";
 import manu from "../assets/manu.svg";
-
-const menu = [
-	{ menu: "Home", link: "/home" },
-	{ menu: "About", link: "/home" },
-	{ menu: "Skills", link: "/home" },
-	{ menu: "Portofolio", link: "/home" },
-	{ menu: "Contact", link: "/home" },
-];
+import Home from "@mui/icons-material/Home";
+import Close from "@mui/icons-material/Close";
+import Person from "@mui/icons-material/Person4";
+import Code from "@mui/icons-material/Code";
+import Folder from "@mui/icons-material/FolderCopy";
+import Contact from "@mui/icons-material/ContactPage";
+import Menu from "@mui/icons-material/Menu";
 
 const MainBottom = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.up("xs")]: {
@@ -32,6 +30,43 @@ const MainBottom = styled(Box)(({ theme }) => ({
 	},
 }));
 
+const MenuIcon = styled(Menu)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 25,
+	fontWeight: 700,
+}));
+
+const HomeIcon = styled(Home)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 30,
+}));
+
+const CloseIcon = styled(Close)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 30,
+	fontWeight: 700,
+}));
+
+const PersonIcon = styled(Person)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 30,
+}));
+
+const CodeIcon = styled(Code)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 30,
+}));
+
+const FolderIcon = styled(Folder)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 30,
+}));
+
+const ContactIcon = styled(Contact)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 30,
+}));
+
 const BottomNav = styled(Box)(({ theme }) => ({
 	height: "60px",
 	display: "flex",
@@ -39,6 +74,7 @@ const BottomNav = styled(Box)(({ theme }) => ({
 	flexDirection: "row",
 	justifyContent: "space-between",
 	alignItems: "center",
+	backgroundColor: [theme.palette.background.default],
 }));
 
 const ModalBottom = styled(Box)(({ theme }) => ({
@@ -61,7 +97,7 @@ const ModalBottom = styled(Box)(({ theme }) => ({
 const MenuItem = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.up("xs")]: {
 		display: "flex",
-		gap: 5,
+		gap: 15,
 		flexDirection: "column",
 		alignItems: "center",
 		alignConten: "center",
@@ -70,6 +106,14 @@ const MenuItem = styled(Box)(({ theme }) => ({
 		display: "none",
 	},
 }));
+
+const menu = [
+	{ menu: "Home", link: "/home", icon: <HomeIcon /> },
+	{ menu: "About", link: "/home", icon: <PersonIcon /> },
+	{ menu: "Skills", link: "/home", icon: <CodeIcon /> },
+	{ menu: "Portofolio", link: "/home", icon: <FolderIcon /> },
+	{ menu: "Contact", link: "/home", icon: <ContactIcon /> },
+];
 
 const NavbarMobile = () => {
 	const [open, setOpen] = useState(false);
@@ -84,7 +128,9 @@ const NavbarMobile = () => {
 						setOpen(true);
 					}}
 				>
-					<img src={manu} alt="menu" height={"20px"} width="20px" />
+					<Tooltip title="Open Menu">
+						<MenuIcon />
+					</Tooltip>
 				</Button>
 			</BottomNav>
 			<Slide direction="up" in={open}>
@@ -94,17 +140,13 @@ const NavbarMobile = () => {
 							return (
 								<Grid item xs={4}>
 									<MenuItem>
-										<img
-											src={home}
-											width="30px"
-											height="30px"
-										/>
+										{e.icon}
 										<Link
 											href="#"
 											underline="none"
 											color={"text.secondary"}
 										>
-											Menu
+											{e.menu}
 										</Link>
 									</MenuItem>
 								</Grid>
@@ -117,12 +159,9 @@ const NavbarMobile = () => {
 							setOpen(false);
 						}}
 					>
-						<img
-							src={close}
-							alt="close"
-							height="20px"
-							width="20px"
-						/>
+						<Tooltip title="Close">
+							<CloseIcon />
+						</Tooltip>
 					</Box>
 				</ModalBottom>
 			</Slide>

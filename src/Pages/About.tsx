@@ -1,12 +1,15 @@
 import { Box, Button, styled, Typography } from "@mui/material";
 import aimyon from "../assets/Aimyon.jpeg";
 import MainButton from "../components/Button";
+import CloudDownload from "@mui/icons-material/CloudDownload";
+import PsychologyAlt from "@mui/icons-material/PsychologyAlt";
+import Coffee from "@mui/icons-material/Coffee";
+import Folder from "@mui/icons-material/FolderCopy";
 
 const BoxMain = styled(Box)(({ theme }) => ({
 	minHeight: "80vh",
 	[theme.breakpoints.down("sm")]: {
 		marginTop: "50px",
-		// minHeight: "90vh",
 	},
 }));
 
@@ -53,6 +56,35 @@ const BoxInfo = styled(Box)(({ theme }) => ({
 	},
 }));
 
+const BoxIcon = styled(Box)(({ theme }) => ({
+	display: "flex",
+	flexDirection: "column",
+	justifyContent: "center",
+	alignItems: "center",
+	alignContent: "center",
+	height: "150px",
+	width: "150px",
+	padding: 10,
+	backgroundColor: "#fff",
+	boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+	borderRadius: 5,
+}));
+
+const PsychologyIcon = styled(PsychologyAlt)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 50,
+}));
+
+const CoffeIcon = styled(Coffee)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 50,
+}));
+
+const FolderIcon = styled(Folder)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 50,
+}));
+
 const About = () => {
 	return (
 		<BoxMain>
@@ -60,7 +92,7 @@ const About = () => {
 				About Me
 			</Typography>
 			<Typography variant="h6" fontWeight={300} textAlign={"center"}>
-				Perkenalkan Diri Saya
+				Introduce Myself
 			</Typography>
 
 			<SubBox>
@@ -79,36 +111,36 @@ const About = () => {
 
 				<BoxInfo>
 					<Box sx={{ display: "flex", flexDirection: "row", gap: 5 }}>
-						<Box
-							sx={{
-								width: "150px",
-								height: "150px",
-								padding: "10px",
-								backgroundColor: "#fff",
-							}}
-						>
-							20+ Procject
-						</Box>
-						<Box
-							sx={{
-								width: "150px",
-								height: "150px",
-								padding: "10px",
-								backgroundColor: "#fff",
-							}}
-						>
-							100+ Cup Coffe
-						</Box>
-						<Box
-							sx={{
-								width: "150px",
-								height: "150px",
-								padding: "10px",
-								backgroundColor: "#fff",
-							}}
-						>
-							24/7 Learning
-						</Box>
+						<BoxIcon>
+							<FolderIcon />
+
+							<Typography fontSize={20} fontWeight={500}>
+								20+
+							</Typography>
+							<Typography fontSize={15} fontWeight={500}>
+								Procject
+							</Typography>
+						</BoxIcon>
+
+						<BoxIcon>
+							<CoffeIcon />
+							<Typography fontSize={20} fontWeight={500}>
+								100+
+							</Typography>
+							<Typography fontSize={15} fontWeight={500}>
+								Cup Coffe
+							</Typography>
+						</BoxIcon>
+						<BoxIcon>
+							<PsychologyIcon />
+
+							<Typography fontSize={20} fontWeight={500}>
+								24/7
+							</Typography>
+							<Typography fontSize={15} fontWeight={500}>
+								Learning
+							</Typography>
+						</BoxIcon>
 					</Box>
 					<Typography
 						variant="body1"
@@ -121,7 +153,9 @@ const About = () => {
 						when an unknown printer took a galley of type and
 						scrambled it to make a type specimen book. It has
 					</Typography>
-					<MainButton>Download CV</MainButton>
+					<MainButton icon={<CloudDownload />}>
+						Download CV
+					</MainButton>
 				</BoxInfo>
 			</SubBox>
 		</BoxMain>

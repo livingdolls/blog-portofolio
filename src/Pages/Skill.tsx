@@ -7,6 +7,16 @@ import {
 	styled,
 	Typography,
 } from "@mui/material";
+import Js from "../assets/svg/js.svg";
+import Ts from "../assets/svg/ts.svg";
+import React from "../assets/svg/React.svg";
+import Php from "../assets/svg/Php.svg";
+import Ejs from "../assets/svg/Ejs.svg";
+import Bs from "../assets/svg/Bs.svg";
+import Rest from "../assets/svg/Rest.svg";
+import Lr from "../assets/svg/Lr.svg";
+import My from "../assets/svg/My.svg";
+import Mui from "../assets/svg/Mui.svg";
 
 const BoxMain = styled(Box)(({ theme }) => ({
 	padding: "100px",
@@ -68,7 +78,7 @@ const Skill = () => {
 				Skills
 			</Typography>
 			<Typography variant="h6" fontWeight={300} textAlign={"center"}>
-				Best Skill Me
+				My Best Skill
 			</Typography>
 
 			<BoxSkill>
@@ -77,32 +87,62 @@ const Skill = () => {
 
 					<List>
 						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"HTML"} />
-						</ListItem>
-
-						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"CSS"} />
-						</ListItem>
-
-						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={Js}
+								/>
+							</ListItemIcon>
 							<ListItemText primary={"Javascript"} />
 						</ListItem>
 
 						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
-							<ListItemText primary={"React JS"} />
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={React}
+								/>
+							</ListItemIcon>
+							<ListItemText primary={"React JS / Next JS"} />
 						</ListItem>
 
 						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={Ts}
+								/>
+							</ListItemIcon>
+							<ListItemText primary={"Typescript"} />
+						</ListItem>
+
+						<ListItem>
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={Mui}
+								/>
+							</ListItemIcon>
 							<ListItemText primary={"Material UI"} />
 						</ListItem>
 
 						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={Bs}
+								/>
+							</ListItemIcon>
 							<ListItemText primary={"Boostrap"} />
 						</ListItem>
 					</List>
@@ -113,25 +153,60 @@ const Skill = () => {
 
 					<List>
 						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={Php}
+								/>
+							</ListItemIcon>
 							<ListItemText primary={"PHP Native"} />
 						</ListItem>
 
 						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={Ejs}
+								/>
+							</ListItemIcon>
 							<ListItemText primary={"Express JS"} />
 						</ListItem>
 
 						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={Lr}
+								/>
+							</ListItemIcon>
 							<ListItemText primary={"Laravel"} />
 						</ListItem>
 						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={Rest}
+								/>
+							</ListItemIcon>
 							<ListItemText primary={"REST API"} />
 						</ListItem>
 						<ListItem>
-							<ListItemIcon>C</ListItemIcon>
+							<ListItemIcon>
+								<Box
+									component="img"
+									height={20}
+									width={20}
+									src={My}
+								/>
+							</ListItemIcon>
 							<ListItemText primary={"MySql"} />
 						</ListItem>
 					</List>

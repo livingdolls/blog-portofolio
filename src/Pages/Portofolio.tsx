@@ -20,7 +20,7 @@ const Portofolio = () => {
 				Portofolio
 			</Typography>
 			<Typography variant="h6" fontWeight={300} textAlign={"center"}>
-				Best Portofolio Me
+				My Best Project
 			</Typography>
 
 			<Box

@@ -1,13 +1,30 @@
-import { Box, styled, Typography } from "@mui/material";
+import { Box, Divider, styled, Typography } from "@mui/material";
+import Github from "@mui/icons-material/GitHub";
+import Facebook from "@mui/icons-material/Facebook";
+import Linkedin from "@mui/icons-material/LinkedIn";
 
 const MainBox = styled(Box)(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
 	flexDirection: "column",
-	justifyContent: "space-around",
-	height: "30vh",
+	justifyContent: "space-between",
+	height: "20vh",
 	padding: "25px",
-	border: "1px solid red",
+}));
+
+const GithubIcon = styled(Github)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 50,
+}));
+
+const FacebookIcon = styled(Facebook)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 50,
+}));
+
+const LinkedinIcon = styled(Linkedin)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 50,
 }));
 
 const Footer = () => {
@@ -16,13 +33,19 @@ const Footer = () => {
 			<Typography variant="h5" fontWeight={500}>
 				Setiawan Nanang
 			</Typography>
-			<Box>
-				<>Facebook</>
-				<>Facebook</>
-				<>Facebook</>
+			<Box display="flex" flexDirection={"row"} gap={5}>
+				<GithubIcon />
+				<FacebookIcon />
+				<LinkedinIcon />
 			</Box>
 
-			<Typography>@Nanang Setiawan Copyright</Typography>
+			<Box sx={{ width: "100%" }}>
+				<Divider />
+
+				<Typography textAlign={"center"} sx={{ mt: 2 }}>
+					Copyright @ 2022. Setiawan Nanang. All right reserved.
+				</Typography>
+			</Box>
 		</MainBox>
 	);
 };

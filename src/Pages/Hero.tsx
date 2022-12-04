@@ -1,7 +1,17 @@
-import { Box, Button, Divider, styled, Typography } from "@mui/material";
+import {
+	Box,
+	Button,
+	Divider,
+	styled,
+	Tooltip,
+	Typography,
+} from "@mui/material";
 import aimyon from "../assets/Aimyon.jpeg";
-import facebook from "../assets/home.svg";
 import MainButton from "../components/Button";
+import Phone from "@mui/icons-material/Phone";
+import Github from "@mui/icons-material/GitHub";
+import Facebook from "@mui/icons-material/Facebook";
+import Linkedin from "@mui/icons-material/LinkedIn";
 
 const MainHero = styled(Box)(({ theme }) => ({
 	minHeight: "95vh",
@@ -12,6 +22,7 @@ const MainHero = styled(Box)(({ theme }) => ({
 
 	[theme.breakpoints.down("md")]: {
 		marginTop: 50,
+		justifyContent: "center",
 	},
 }));
 
@@ -26,8 +37,32 @@ const BoxAbout = styled(Box)(({ theme }) => ({
 
 const BoxMedia = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.down("sm")]: {
+		flex: "0 0 100%",
+		order: 1,
+		paddingRight: 20,
+		paddingLeft: 20,
+	},
+
+	[theme.breakpoints.up("sm")]: {
 		flex: "0 0 10%",
-		paddingLeft: "25px",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center",
+	},
+}));
+
+const SuBoxMedia = styled(Box)(({ theme }) => ({
+	[theme.breakpoints.down("sm")]: {
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "space-around",
+	},
+
+	[theme.breakpoints.up("sm")]: {
+		display: "flex",
+		flexDirection: "column",
+		height: "40%",
+		justifyContent: "space-around",
 	},
 }));
 
@@ -62,44 +97,38 @@ const NamaTypo = styled(Typography)(({ theme }) => ({
 	},
 }));
 
+const GithubIcon = styled(Github)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 50,
+}));
+
+const FacebookIcon = styled(Facebook)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 50,
+}));
+
+const LinkedinIcon = styled(Linkedin)(({ theme }) => ({
+	color: [theme.palette.primary.main],
+	fontSize: 50,
+}));
+
 const Hero = () => {
 	return (
 		<MainHero>
 			<BoxMedia sx={{ width: "10%" }}>
-				<Box
-					display="flex"
-					flexDirection={"column"}
-					justifyContent={"center"}
-					gap={2}
-					sx={{ height: "100%" }}
-				>
-					<Box>
-						<img
-							src={facebook}
-							alt={"facebook"}
-							height={30}
-							width={30}
-						/>
-					</Box>
+				<SuBoxMedia>
+					<Tooltip title="Github" arrow placement="right">
+						<GithubIcon />
+					</Tooltip>
 
-					<Box>
-						<img
-							src={facebook}
-							alt={"facebook"}
-							height={30}
-							width={30}
-						/>
-					</Box>
+					<Tooltip title="Facebook" arrow placement="right">
+						<FacebookIcon />
+					</Tooltip>
 
-					<Box>
-						<img
-							src={facebook}
-							alt={"facebook"}
-							height={30}
-							width={30}
-						/>
-					</Box>
-				</Box>
+					<Tooltip title="Linkedin" arrow placement="right">
+						<LinkedinIcon />
+					</Tooltip>
+				</SuBoxMedia>
 			</BoxMedia>
 
 			{/* About Me */}
@@ -133,7 +162,7 @@ const Hero = () => {
 						I've been freelancing for the last 2 years, and right
 						now i am looking forward to working with you!.
 					</Typography>
-					<MainButton>Contact Me</MainButton>
+					<MainButton icon={<Phone />}>Contact Me</MainButton>
 				</Box>
 			</BoxAbout>
 
