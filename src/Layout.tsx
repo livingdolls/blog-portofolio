@@ -9,18 +9,26 @@ import Portofolio from "./Pages/Portofolio";
 import Skill from "./Pages/Skill";
 
 const Layout = () => {
+	const getData = (comp: string) => {
+		const element = document.getElementById(comp);
+		element?.scrollIntoView({
+			behavior: "smooth",
+			block: "end",
+			inline: "nearest",
+		});
+	};
 	return (
 		<>
 			<Container maxWidth="xl">
-				<Navbar />
-				<Hero />
+				<Navbar sendLink={getData} />
+				<Hero sendLink={getData} />
 				<About />
 				<Skill />
 				<Portofolio />
 				<Contact />
 				<Footer />
 			</Container>
-			<NavbarMobile />
+			<NavbarMobile sendLink={getData} />
 		</>
 	);
 };

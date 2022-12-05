@@ -56,6 +56,18 @@ const BoxInfo = styled(Box)(({ theme }) => ({
 	},
 }));
 
+const BoxSubInfo = styled(Box)(({ theme }) => ({
+	display: "flex",
+	flexDirection: "row",
+	[theme.breakpoints.up("md")]: {
+		gap: 25,
+	},
+
+	[theme.breakpoints.between("xs", "md")]: {
+		gap: 10,
+	},
+}));
+
 const BoxIcon = styled(Box)(({ theme }) => ({
 	display: "flex",
 	flexDirection: "column",
@@ -72,22 +84,40 @@ const BoxIcon = styled(Box)(({ theme }) => ({
 
 const PsychologyIcon = styled(PsychologyAlt)(({ theme }) => ({
 	color: [theme.palette.primary.main],
-	fontSize: 50,
+	[theme.breakpoints.up("md")]: {
+		fontSize: 50,
+	},
+
+	[theme.breakpoints.between("xs", "md")]: {
+		fontSize: 40,
+	},
 }));
 
 const CoffeIcon = styled(Coffee)(({ theme }) => ({
 	color: [theme.palette.primary.main],
-	fontSize: 50,
+	[theme.breakpoints.up("md")]: {
+		fontSize: 50,
+	},
+
+	[theme.breakpoints.between("xs", "md")]: {
+		fontSize: 40,
+	},
 }));
 
 const FolderIcon = styled(Folder)(({ theme }) => ({
 	color: [theme.palette.primary.main],
-	fontSize: 50,
+	[theme.breakpoints.up("md")]: {
+		fontSize: 50,
+	},
+
+	[theme.breakpoints.between("xs", "md")]: {
+		fontSize: 40,
+	},
 }));
 
 const About = () => {
 	return (
-		<BoxMain>
+		<BoxMain id="about">
 			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
 				About Me
 			</Typography>
@@ -110,7 +140,7 @@ const About = () => {
 				</ImageBorder>
 
 				<BoxInfo>
-					<Box sx={{ display: "flex", flexDirection: "row", gap: 5 }}>
+					<BoxSubInfo>
 						<BoxIcon>
 							<FolderIcon />
 
@@ -141,7 +171,7 @@ const About = () => {
 								Learning
 							</Typography>
 						</BoxIcon>
-					</Box>
+					</BoxSubInfo>
 					<Typography
 						variant="body1"
 						textAlign={"justify"}

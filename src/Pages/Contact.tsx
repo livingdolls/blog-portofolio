@@ -82,7 +82,7 @@ const ContactMe = styled(Box)(({ theme }) => ({
 
 const Contact = () => {
 	return (
-		<SubBox>
+		<SubBox id="contact">
 			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
 				Contact Me
 			</Typography>

@@ -9,7 +9,6 @@ import {
 	Typography,
 } from "@mui/material";
 import { useState } from "react";
-import manu from "../assets/manu.svg";
 import Home from "@mui/icons-material/Home";
 import Close from "@mui/icons-material/Close";
 import Person from "@mui/icons-material/Person4";
@@ -17,6 +16,7 @@ import Code from "@mui/icons-material/Code";
 import Folder from "@mui/icons-material/FolderCopy";
 import Contact from "@mui/icons-material/ContactPage";
 import Menu from "@mui/icons-material/Menu";
+import { propsNavbar } from "./Navbar";
 
 const MainBottom = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.up("xs")]: {
@@ -68,7 +68,7 @@ const ContactIcon = styled(Contact)(({ theme }) => ({
 }));
 
 const BottomNav = styled(Box)(({ theme }) => ({
-	height: "60px",
+	height: "40px",
 	display: "flex",
 	padding: "10px",
 	flexDirection: "row",
@@ -108,20 +108,20 @@ const MenuItem = styled(Box)(({ theme }) => ({
 }));
 
 const menu = [
-	{ menu: "Home", link: "/home", icon: <HomeIcon /> },
-	{ menu: "About", link: "/home", icon: <PersonIcon /> },
-	{ menu: "Skills", link: "/home", icon: <CodeIcon /> },
-	{ menu: "Portofolio", link: "/home", icon: <FolderIcon /> },
-	{ menu: "Contact", link: "/home", icon: <ContactIcon /> },
+	{ menu: "Home", link: "hero", icon: <HomeIcon /> },
+	{ menu: "About", link: "about", icon: <PersonIcon /> },
+	{ menu: "Skills", link: "skill", icon: <CodeIcon /> },
+	{ menu: "Portofolio", link: "portofolio", icon: <FolderIcon /> },
+	{ menu: "Contact", link: "contact", icon: <ContactIcon /> },
 ];
 
-const NavbarMobile = () => {
+const NavbarMobile: React.FC<propsNavbar> = ({ sendLink }) => {
 	const [open, setOpen] = useState(false);
 	return (
 		<MainBottom>
 			<BottomNav>
 				<Typography variant="body1" fontWeight={500} fontSize={20}>
-					Nanang Setiawan
+					Setiawan
 				</Typography>
 				<Button
 					onClick={() => {
@@ -138,11 +138,11 @@ const NavbarMobile = () => {
 					<Grid container spacing={3} alignItems="center">
 						{menu.map((e) => {
 							return (
-								<Grid item xs={4}>
+								<Grid key={e.link} item xs={4}>
 									<MenuItem>
 										{e.icon}
 										<Link
-											href="#"
+											onClick={() => sendLink(e.link)}
 											underline="none"
 											color={"text.secondary"}
 										>

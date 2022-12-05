@@ -15,7 +15,7 @@ const MainPorto = styled(Box)(({ theme }) => ({
 
 const Portofolio = () => {
 	return (
-		<MainPorto>
+		<MainPorto id="portofolio">
 			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
 				Portofolio
 			</Typography>
