@@ -1,11 +1,11 @@
 import { AppBar, Box, Link, styled, Typography } from "@mui/material";
 
 const menu = [
-	{ menu: "Home", link: "/home" },
-	{ menu: "About", link: "/home" },
-	{ menu: "Skills", link: "/home" },
-	{ menu: "Portofolio", link: "/home" },
-	{ menu: "Contact", link: "/home" },
+	{ menu: "Home", link: "hero" },
+	{ menu: "About", link: "about" },
+	{ menu: "Skills", link: "skill" },
+	{ menu: "Portofolio", link: "portofolio" },
+	{ menu: "Contact", link: "contact" },
 ];
 
 const Header = styled(AppBar)(({ theme }) => ({
@@ -35,22 +35,40 @@ const Menu = styled(Box)(({ theme }) => ({
 	fontSize: "20px",
 }));
 
-const Navbar = () => {
+const LinkMenu = styled(Link)(({ theme }) => ({
+	cursor: "pointer",
+	padding: 5,
+	"&:hover": {
+		backgroundColor: [theme.palette.primary.main],
+		color: "#fff",
+		borderRadius: 5,
+	},
+}));
+
+export type propsNavbar = {
+	sendLink: (comp: string) => void;
+};
+
+const Navbar: React.FC<propsNavbar> = ({ sendLink }) => {
 	return (
 		<Header elevation={0} color="secondary">
 			<Nav>
 				<Box>
 					<Typography variant="h5" fontWeight={500} color={"primary"}>
-						Nanang Setiawan
+						Setiawan Nanang
 					</Typography>
 				</Box>
 
 				<Menu>
 					{menu.map((e) => {
 						return (
-							<Link href="#" underline="none">
+							<LinkMenu
+								onClick={() => sendLink(e.link)}
+								underline="none"
+								key={e.link}
+							>
 								{e.menu}
-							</Link>
+							</LinkMenu>
 						);
 					})}
 				</Menu>

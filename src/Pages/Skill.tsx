@@ -73,7 +73,7 @@ const SkillTypo = styled(Typography)(({ theme }) => ({
 
 const Skill = () => {
 	return (
-		<BoxMain>
+		<BoxMain id="skill">
 			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
 				Skills
 			</Typography>

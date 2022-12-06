@@ -1,13 +1,5 @@
-import {
-	Box,
-	Card,
-	CardActions,
-	CardContent,
-	CardMedia,
-	styled,
-	Typography,
-} from "@mui/material";
-import aimyon from "../assets/Aimyon.jpeg";
+import { Box, styled, Typography } from "@mui/material";
+import CardPorto from "../components/CardPorto";
 
 const MainPorto = styled(Box)(({ theme }) => ({
 	padding: "50px",
@@ -15,7 +7,7 @@ const MainPorto = styled(Box)(({ theme }) => ({
 
 const Portofolio = () => {
 	return (
-		<MainPorto>
+		<MainPorto id="portofolio">
 			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
 				Portofolio
 			</Typography>
@@ -31,29 +23,7 @@ const Portofolio = () => {
 				gap={5}
 				marginTop={10}
 			>
-				<Card sx={{ width: 300 }}>
-					<CardMedia src={aimyon} component="img" height={300} />
-					<CardContent>Shoping Cart</CardContent>
-					<CardActions>Demo</CardActions>
-				</Card>
-
-				<Card sx={{ width: 300 }}>
-					<CardMedia src={aimyon} component="img" height={300} />
-					<CardContent>Shoping Cart</CardContent>
-					<CardActions>Demo</CardActions>
-				</Card>
-
-				<Card sx={{ width: 300 }}>
-					<CardMedia src={aimyon} component="img" height={300} />
-					<CardContent>Shoping Cart</CardContent>
-					<CardActions>Demo</CardActions>
-				</Card>
-
-				<Card sx={{ width: 300 }}>
-					<CardMedia src={aimyon} component="img" height={300} />
-					<CardContent>Shoping Cart</CardContent>
-					<CardActions>Demo</CardActions>
-				</Card>
+				<CardPorto />
 			</Box>
 		</MainPorto>
 	);
