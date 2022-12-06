@@ -139,16 +139,20 @@ const NavbarMobile: React.FC<propsNavbar> = ({ sendLink }) => {
 						{menu.map((e) => {
 							return (
 								<Grid key={e.link} item xs={4}>
-									<MenuItem>
-										{e.icon}
-										<Link
-											onClick={() => sendLink(e.link)}
-											underline="none"
-											color={"text.secondary"}
-										>
-											{e.menu}
-										</Link>
-									</MenuItem>
+									<Link
+										onClick={() => sendLink(e.link)}
+										underline="none"
+									>
+										<MenuItem>
+											{e.icon}
+											<Typography
+												fontWeight={600}
+												color={"text.secondary"}
+											>
+												{e.menu}
+											</Typography>
+										</MenuItem>
+									</Link>
 								</Grid>
 							);
 						})}

@@ -55,7 +55,7 @@ const Navbar: React.FC<propsNavbar> = ({ sendLink }) => {
 			<Nav>
 				<Box>
 					<Typography variant="h5" fontWeight={500} color={"primary"}>
-						Nanang Setiawan
+						Setiawan Nanang
 					</Typography>
 				</Box>
 

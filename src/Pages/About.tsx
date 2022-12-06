@@ -45,12 +45,12 @@ const BoxInfo = styled(Box)(({ theme }) => ({
 	flexDirection: "column",
 	[theme.breakpoints.up("md")]: {
 		justifyContent: "space-between",
-		gap: 40,
+		gap: 20,
 	},
 
 	[theme.breakpoints.between("xs", "md")]: {
 		marginTop: 20,
-		gap: 40,
+		gap: 20,
 		paddingLeft: 20,
 		paddingRight: 20,
 	},
@@ -165,24 +165,40 @@ const About = () => {
 							<PsychologyIcon />
 
 							<Typography fontSize={20} fontWeight={500}>
-								24/7
+								12/7
 							</Typography>
 							<Typography fontSize={15} fontWeight={500}>
 								Learning
 							</Typography>
 						</BoxIcon>
 					</BoxSubInfo>
-					<Typography
-						variant="body1"
-						textAlign={"justify"}
-						fontSize={20}
-					>
-						Lorem Ipsum is simply dummy text of the printing and
-						typesetting industry. Lorem Ipsum has been the
-						industry's standard dummy text ever since the 1500s,
-						when an unknown printer took a galley of type and
-						scrambled it to make a type specimen book. It has
-					</Typography>
+					<Box>
+						<Typography
+							variant="body1"
+							textAlign={"justify"}
+							fontSize={18}
+						>
+							You can call me Awan or Nanang as comfortable as you
+							like. I am 21 years old and a Final Semester
+							Informatics Engineering Student from Unisbank
+							Semarang. I have experience in creating websites
+							more than 3 year & completed more than 20 projects
+							using modern technology. I specialize in building
+							mobile responsive front-end UI applications that
+							connect with API's and PHP/Express backend
+							technologies.
+						</Typography>
+						<Typography
+							variant="body1"
+							textAlign={"justify"}
+							fontSize={18}
+							mt={1}
+						>
+							I m quick learner, can pick up new tech stacks as
+							needed, always upgrading my new skills and learning
+							up-to-date new tech stack.
+						</Typography>
+					</Box>
 					<MainButton icon={<CloudDownload />}>
 						Download CV
 					</MainButton>

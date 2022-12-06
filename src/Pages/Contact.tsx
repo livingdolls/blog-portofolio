@@ -73,7 +73,7 @@ const ContactMe = styled(Box)(({ theme }) => ({
 	width: "50%",
 	height: "30%",
 	[theme.breakpoints.up("sm")]: {
-		marginLeft: "50%",
+		marginLeft: "30%",
 	},
 	[theme.breakpoints.down("sm")]: {
 		margin: "auto",
@@ -131,6 +131,7 @@ const Contact = () => {
 						variant="h6"
 						fontWeight={500}
 						textAlign={"center"}
+						color={"primary"}
 					>
 						Send Me Message
 					</Typography>
