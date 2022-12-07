@@ -13,7 +13,6 @@ import Phone from "@mui/icons-material/Phone";
 import Github from "@mui/icons-material/GitHub";
 import Facebook from "@mui/icons-material/Facebook";
 import Linkedin from "@mui/icons-material/LinkedIn";
-import { propsNavbar } from "../components/Navbar";
 
 const MainHero = styled(Box)(({ theme }) => ({
 	minHeight: "95vh",
@@ -113,7 +112,9 @@ const LinkedinIcon = styled(Linkedin)(({ theme }) => ({
 	color: [theme.palette.primary.main],
 	fontSize: 50,
 }));
-
+type propsNavbar = {
+	sendLink: (comp: string) => void;
+};
 const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
 	return (
 		<MainHero id="hero">

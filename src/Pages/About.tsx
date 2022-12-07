@@ -1,5 +1,6 @@
 import { Box, Button, styled, Typography } from "@mui/material";
 import aimyon from "../assets/Aimyon.jpeg";
+import foto from "../assets/foto.jpg";
 import MainButton from "../components/Button";
 import CloudDownload from "@mui/icons-material/CloudDownload";
 import PsychologyAlt from "@mui/icons-material/PsychologyAlt";
@@ -130,7 +131,7 @@ const About = () => {
 					<Box
 						component="img"
 						alt="profil"
-						src={aimyon}
+						src={foto}
 						sx={{
 							borderRadius: "30px",
 							height: { xs: "300px", lg: "500px" },

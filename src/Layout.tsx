@@ -7,8 +7,15 @@ import Navbar from "./components/Navbar";
 import NavbarMobile from "./components/NavbarMobile";
 import Portofolio from "./Pages/Portofolio";
 import Skill from "./Pages/Skill";
+import ModalTheme from "./components/ModalTheme";
+import { useState } from "react";
 
-const Layout = () => {
+export type themeProps = {
+	theme: any;
+	setTheme: any;
+};
+
+const Layout: React.FC<themeProps> = ({ theme, setTheme }) => {
 	const getData = (comp: string) => {
 		const element = document.getElementById(comp);
 		element?.scrollIntoView({
@@ -17,18 +24,25 @@ const Layout = () => {
 			inline: "nearest",
 		});
 	};
+	const [open, setOpen] = useState<boolean>(false);
 	return (
 		<>
 			<Container maxWidth="xl">
-				<Navbar sendLink={getData} />
+				<Navbar sendLink={getData} setOpen={setOpen} />
 				<Hero sendLink={getData} />
 				<About />
 				<Skill />
 				<Portofolio />
 				<Contact />
 				<Footer />
+				<ModalTheme
+					theme={theme}
+					setTheme={setTheme}
+					open={open}
+					setOpen={setOpen}
+				/>
 			</Container>
-			<NavbarMobile sendLink={getData} />
+			<NavbarMobile sendLink={getData} setOpen={setOpen} />
 		</>
 	);
 };

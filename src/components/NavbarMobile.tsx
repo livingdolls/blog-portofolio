@@ -16,6 +16,7 @@ import Code from "@mui/icons-material/Code";
 import Folder from "@mui/icons-material/FolderCopy";
 import Contact from "@mui/icons-material/ContactPage";
 import Menu from "@mui/icons-material/Menu";
+import ColorLens from "@mui/icons-material/ColorLens";
 import { propsNavbar } from "./Navbar";
 
 const MainBottom = styled(Box)(({ theme }) => ({
@@ -107,6 +108,10 @@ const MenuItem = styled(Box)(({ theme }) => ({
 	},
 }));
 
+const ColorIcon = styled(ColorLens)(({ theme }) => ({
+	fontSize: 30,
+}));
+
 const menu = [
 	{ menu: "Home", link: "hero", icon: <HomeIcon /> },
 	{ menu: "About", link: "about", icon: <PersonIcon /> },
@@ -115,8 +120,8 @@ const menu = [
 	{ menu: "Contact", link: "contact", icon: <ContactIcon /> },
 ];
 
-const NavbarMobile: React.FC<propsNavbar> = ({ sendLink }) => {
-	const [open, setOpen] = useState(false);
+const NavbarMobile: React.FC<propsNavbar> = ({ sendLink, setOpen }) => {
+	const [opens, setOpens] = useState(false);
 	return (
 		<MainBottom>
 			<BottomNav>
@@ -125,7 +130,7 @@ const NavbarMobile: React.FC<propsNavbar> = ({ sendLink }) => {
 				</Typography>
 				<Button
 					onClick={() => {
-						setOpen(true);
+						setOpens(true);
 					}}
 				>
 					<Tooltip title="Open Menu">
@@ -133,7 +138,7 @@ const NavbarMobile: React.FC<propsNavbar> = ({ sendLink }) => {
 					</Tooltip>
 				</Button>
 			</BottomNav>
-			<Slide direction="up" in={open}>
+			<Slide direction="up" in={opens}>
 				<ModalBottom>
 					<Grid container spacing={3} alignItems="center">
 						{menu.map((e) => {
@@ -156,11 +161,28 @@ const NavbarMobile: React.FC<propsNavbar> = ({ sendLink }) => {
 								</Grid>
 							);
 						})}
+
+						<Grid key={"modal"} item xs={4}>
+							<Link
+								underline="none"
+								onClick={() => setOpen(true)}
+							>
+								<MenuItem>
+									<ColorIcon />
+									<Typography
+										fontWeight={600}
+										color={"text.secondary"}
+									>
+										Theme
+									</Typography>
+								</MenuItem>
+							</Link>
+						</Grid>
 					</Grid>
 					<Box
-						sx={{ position: "fixed", bottom: 30, right: 40 }}
+						sx={{ position: "fixed", bottom: 25, right: 40 }}
 						onClick={() => {
-							setOpen(false);
+							setOpens(false);
 						}}
 					>
 						<Tooltip title="Close">

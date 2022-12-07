@@ -1,4 +1,5 @@
 import { AppBar, Box, Link, styled, Typography } from "@mui/material";
+import ColorLens from "@mui/icons-material/ColorLens";
 
 const menu = [
 	{ menu: "Home", link: "hero" },
@@ -45,11 +46,16 @@ const LinkMenu = styled(Link)(({ theme }) => ({
 	},
 }));
 
+const ColorIcon = styled(ColorLens)(({ theme }) => ({
+	fontSize: 25,
+}));
+
 export type propsNavbar = {
 	sendLink: (comp: string) => void;
+	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Navbar: React.FC<propsNavbar> = ({ sendLink }) => {
+const Navbar: React.FC<propsNavbar> = ({ sendLink, setOpen }) => {
 	return (
 		<Header elevation={0} color="secondary">
 			<Nav>
@@ -71,6 +77,14 @@ const Navbar: React.FC<propsNavbar> = ({ sendLink }) => {
 							</LinkMenu>
 						);
 					})}
+					<LinkMenu
+						onClick={() => setOpen(true)}
+						underline="none"
+						key={"modal"}
+						sx={{ mt: 1 }}
+					>
+						<ColorIcon />
+					</LinkMenu>
 				</Menu>
 			</Nav>
 		</Header>
