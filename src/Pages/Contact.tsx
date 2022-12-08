@@ -5,6 +5,73 @@ import Email from "@mui/icons-material/Email";
 import Telegram from "@mui/icons-material/Telegram";
 import WhatsApp from "@mui/icons-material/WhatsApp";
 
+const Contact = () => {
+	return (
+		<SubBox id="contact">
+			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
+				Contact Me
+			</Typography>
+			<Typography variant="h6" fontWeight={300} textAlign={"center"}>
+				No matter what, Just do it
+			</Typography>
+
+			<MainBox>
+				<SuBox gap={3}>
+					<ContactMe>
+						<EmailIcon />
+						<Typography fontSize={20} fontWeight={500}>
+							Email
+						</Typography>
+
+						<Typography variant={"body1"}>
+							nanangsetiawaan@yahoo.com
+						</Typography>
+					</ContactMe>
+
+					<ContactMe>
+						<WhatsappIcon />
+						<Typography fontSize={20} fontWeight={500}>
+							WhatsApp
+						</Typography>
+
+						<Typography variant={"body1"}>
+							+6285729577985
+						</Typography>
+					</ContactMe>
+
+					<ContactMe>
+						<TelegramIcon />
+						<Typography fontSize={20} fontWeight={500}>
+							Telegram
+						</Typography>
+
+						<Typography variant={"body1"}>
+							+6285729577985
+						</Typography>
+					</ContactMe>
+				</SuBox>
+
+				<SuBox gap={3}>
+					<Typography
+						variant="h6"
+						fontWeight={500}
+						textAlign={"center"}
+						color={"primary"}
+					>
+						Send Me Message
+					</Typography>
+					<SearchBox label="Your name" />
+					<SearchBox size="medium" label="Your Email" />
+					<SearchBox label="Your message" multiline rows={5} />
+					<MainButton icon={<Send />}>Send Message</MainButton>
+				</SuBox>
+			</MainBox>
+		</SubBox>
+	);
+};
+
+export default Contact;
+
 const EmailIcon = styled(Email)(({ theme }) => ({
 	color: [theme.palette.primary.main],
 	fontSize: 50,
@@ -79,70 +146,3 @@ const ContactMe = styled(Box)(({ theme }) => ({
 		margin: "auto",
 	},
 }));
-
-const Contact = () => {
-	return (
-		<SubBox id="contact">
-			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
-				Contact Me
-			</Typography>
-			<Typography variant="h6" fontWeight={300} textAlign={"center"}>
-				No matter what, Just do it
-			</Typography>
-
-			<MainBox>
-				<SuBox gap={3}>
-					<ContactMe>
-						<EmailIcon />
-						<Typography fontSize={20} fontWeight={500}>
-							Email
-						</Typography>
-
-						<Typography variant={"body1"}>
-							nanangsetiawaan@yahoo.com
-						</Typography>
-					</ContactMe>
-
-					<ContactMe>
-						<WhatsappIcon />
-						<Typography fontSize={20} fontWeight={500}>
-							WhatsApp
-						</Typography>
-
-						<Typography variant={"body1"}>
-							+6285729577985
-						</Typography>
-					</ContactMe>
-
-					<ContactMe>
-						<TelegramIcon />
-						<Typography fontSize={20} fontWeight={500}>
-							Telegram
-						</Typography>
-
-						<Typography variant={"body1"}>
-							+6285729577985
-						</Typography>
-					</ContactMe>
-				</SuBox>
-
-				<SuBox gap={3}>
-					<Typography
-						variant="h6"
-						fontWeight={500}
-						textAlign={"center"}
-						color={"primary"}
-					>
-						Send Me Message
-					</Typography>
-					<SearchBox label="Your name" />
-					<SearchBox size="medium" label="Your Email" />
-					<SearchBox label="Your message" multiline rows={5} />
-					<MainButton icon={<Send />}>Send Message</MainButton>
-				</SuBox>
-			</MainBox>
-		</SubBox>
-	);
-};
-
-export default Contact;

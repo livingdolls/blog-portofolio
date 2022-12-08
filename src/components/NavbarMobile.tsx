@@ -19,6 +19,83 @@ import Menu from "@mui/icons-material/Menu";
 import ColorLens from "@mui/icons-material/ColorLens";
 import { propsNavbar } from "./Navbar";
 
+const NavbarMobile: React.FC<propsNavbar> = ({ sendLink, setOpen }) => {
+	const [opens, setOpens] = useState(false);
+	return (
+		<MainBottom>
+			<BottomNav>
+				<Typography variant="body1" fontWeight={500} fontSize={20}>
+					Setiawan
+				</Typography>
+				<Button
+					onClick={() => {
+						setOpens(true);
+					}}
+				>
+					<Tooltip title="Open Menu">
+						<MenuIcon />
+					</Tooltip>
+				</Button>
+			</BottomNav>
+			<Slide direction="up" in={opens}>
+				<ModalBottom>
+					<Grid container spacing={3} alignItems="center">
+						{menu.map((e) => {
+							return (
+								<Grid key={e.link} item xs={4}>
+									<Link
+										onClick={() => sendLink(e.link)}
+										underline="none"
+									>
+										<MenuItem>
+											{e.icon}
+											<Typography
+												fontWeight={600}
+												color={"text.secondary"}
+											>
+												{e.menu}
+											</Typography>
+										</MenuItem>
+									</Link>
+								</Grid>
+							);
+						})}
+
+						<Grid key={"modal"} item xs={4}>
+							<Link
+								underline="none"
+								onClick={() => setOpen(true)}
+							>
+								<MenuItem>
+									<ColorIcon />
+									<Typography
+										fontWeight={600}
+										color={"text.secondary"}
+									>
+										Theme
+									</Typography>
+								</MenuItem>
+							</Link>
+						</Grid>
+					</Grid>
+					<Box
+						sx={{ position: "fixed", bottom: 25, right: 40 }}
+						onClick={() => {
+							setOpens(false);
+						}}
+					>
+						<Tooltip title="Close">
+							<CloseIcon />
+						</Tooltip>
+					</Box>
+				</ModalBottom>
+			</Slide>
+		</MainBottom>
+	);
+};
+
+export default NavbarMobile;
+
 const MainBottom = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.up("xs")]: {
 		position: "fixed",
@@ -119,80 +196,3 @@ const menu = [
 	{ menu: "Portofolio", link: "portofolio", icon: <FolderIcon /> },
 	{ menu: "Contact", link: "contact", icon: <ContactIcon /> },
 ];
-
-const NavbarMobile: React.FC<propsNavbar> = ({ sendLink, setOpen }) => {
-	const [opens, setOpens] = useState(false);
-	return (
-		<MainBottom>
-			<BottomNav>
-				<Typography variant="body1" fontWeight={500} fontSize={20}>
-					Setiawan
-				</Typography>
-				<Button
-					onClick={() => {
-						setOpens(true);
-					}}
-				>
-					<Tooltip title="Open Menu">
-						<MenuIcon />
-					</Tooltip>
-				</Button>
-			</BottomNav>
-			<Slide direction="up" in={opens}>
-				<ModalBottom>
-					<Grid container spacing={3} alignItems="center">
-						{menu.map((e) => {
-							return (
-								<Grid key={e.link} item xs={4}>
-									<Link
-										onClick={() => sendLink(e.link)}
-										underline="none"
-									>
-										<MenuItem>
-											{e.icon}
-											<Typography
-												fontWeight={600}
-												color={"text.secondary"}
-											>
-												{e.menu}
-											</Typography>
-										</MenuItem>
-									</Link>
-								</Grid>
-							);
-						})}
-
-						<Grid key={"modal"} item xs={4}>
-							<Link
-								underline="none"
-								onClick={() => setOpen(true)}
-							>
-								<MenuItem>
-									<ColorIcon />
-									<Typography
-										fontWeight={600}
-										color={"text.secondary"}
-									>
-										Theme
-									</Typography>
-								</MenuItem>
-							</Link>
-						</Grid>
-					</Grid>
-					<Box
-						sx={{ position: "fixed", bottom: 25, right: 40 }}
-						onClick={() => {
-							setOpens(false);
-						}}
-					>
-						<Tooltip title="Close">
-							<CloseIcon />
-						</Tooltip>
-					</Box>
-				</ModalBottom>
-			</Slide>
-		</MainBottom>
-	);
-};
-
-export default NavbarMobile;

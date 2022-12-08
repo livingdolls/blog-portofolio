@@ -1,11 +1,105 @@
-import { Box, Button, styled, Typography } from "@mui/material";
-import aimyon from "../assets/Aimyon.jpeg";
+import { Box, styled, Typography } from "@mui/material";
 import foto from "../assets/foto.jpg";
 import MainButton from "../components/Button";
 import CloudDownload from "@mui/icons-material/CloudDownload";
 import PsychologyAlt from "@mui/icons-material/PsychologyAlt";
 import Coffee from "@mui/icons-material/Coffee";
 import Folder from "@mui/icons-material/FolderCopy";
+
+const About = () => {
+	return (
+		<BoxMain id="about">
+			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
+				About Me
+			</Typography>
+			<Typography variant="h6" fontWeight={300} textAlign={"center"}>
+				Introduce Myself
+			</Typography>
+
+			<SubBox>
+				<ImageBorder>
+					<Box
+						component="img"
+						alt="profil"
+						src={foto}
+						sx={{
+							borderRadius: "30px",
+							height: { xs: "300px", lg: "500px" },
+							width: { xs: "300px", lg: "500px" },
+						}}
+					/>
+				</ImageBorder>
+
+				<BoxInfo>
+					<BoxSubInfo>
+						<BoxIcon>
+							<FolderIcon />
+
+							<Typography fontSize={20} fontWeight={500}>
+								20+
+							</Typography>
+							<Typography fontSize={15} fontWeight={500}>
+								Procject
+							</Typography>
+						</BoxIcon>
+
+						<BoxIcon>
+							<CoffeIcon />
+							<Typography fontSize={20} fontWeight={500}>
+								100+
+							</Typography>
+							<Typography fontSize={15} fontWeight={500}>
+								Cup Coffe
+							</Typography>
+						</BoxIcon>
+						<BoxIcon>
+							<PsychologyIcon />
+
+							<Typography fontSize={20} fontWeight={500}>
+								12/7
+							</Typography>
+							<Typography fontSize={15} fontWeight={500}>
+								Learning
+							</Typography>
+						</BoxIcon>
+					</BoxSubInfo>
+					<Box>
+						<Typography
+							variant="body1"
+							textAlign={"justify"}
+							fontSize={18}
+						>
+							You can call me Awan or Nanang as comfortable as you
+							like. I am 21 years old and a Final Semester
+							Informatics Engineering Student from Unisbank
+							Semarang. I have experience in creating websites
+							more than 3 year & completed more than 20 projects
+							using modern technology. I specialize in building
+							mobile responsive front-end UI applications that
+							connect with API's and PHP/Express backend
+							technologies.
+						</Typography>
+						<Typography
+							variant="body1"
+							textAlign={"justify"}
+							fontSize={18}
+							mt={1}
+						>
+							I m quick learner, can pick up new tech stacks as
+							needed, always upgrading my new skills and learning
+							up-to-date new tech stack.
+						</Typography>
+					</Box>
+					<MainButton icon={<CloudDownload />}>
+						Download CV
+					</MainButton>
+				</BoxInfo>
+			</SubBox>
+		</BoxMain>
+	);
+};
+
+export default About;
 
 const BoxMain = styled(Box)(({ theme }) => ({
 	minHeight: "80vh",
@@ -115,98 +209,3 @@ const FolderIcon = styled(Folder)(({ theme }) => ({
 		fontSize: 40,
 	},
 }));
-
-const About = () => {
-	return (
-		<BoxMain id="about">
-			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
-				About Me
-			</Typography>
-			<Typography variant="h6" fontWeight={300} textAlign={"center"}>
-				Introduce Myself
-			</Typography>
-
-			<SubBox>
-				<ImageBorder>
-					<Box
-						component="img"
-						alt="profil"
-						src={foto}
-						sx={{
-							borderRadius: "30px",
-							height: { xs: "300px", lg: "500px" },
-							width: { xs: "300px", lg: "500px" },
-						}}
-					/>
-				</ImageBorder>
-
-				<BoxInfo>
-					<BoxSubInfo>
-						<BoxIcon>
-							<FolderIcon />
-
-							<Typography fontSize={20} fontWeight={500}>
-								20+
-							</Typography>
-							<Typography fontSize={15} fontWeight={500}>
-								Procject
-							</Typography>
-						</BoxIcon>
-
-						<BoxIcon>
-							<CoffeIcon />
-							<Typography fontSize={20} fontWeight={500}>
-								100+
-							</Typography>
-							<Typography fontSize={15} fontWeight={500}>
-								Cup Coffe
-							</Typography>
-						</BoxIcon>
-						<BoxIcon>
-							<PsychologyIcon />
-
-							<Typography fontSize={20} fontWeight={500}>
-								12/7
-							</Typography>
-							<Typography fontSize={15} fontWeight={500}>
-								Learning
-							</Typography>
-						</BoxIcon>
-					</BoxSubInfo>
-					<Box>
-						<Typography
-							variant="body1"
-							textAlign={"justify"}
-							fontSize={18}
-						>
-							You can call me Awan or Nanang as comfortable as you
-							like. I am 21 years old and a Final Semester
-							Informatics Engineering Student from Unisbank
-							Semarang. I have experience in creating websites
-							more than 3 year & completed more than 20 projects
-							using modern technology. I specialize in building
-							mobile responsive front-end UI applications that
-							connect with API's and PHP/Express backend
-							technologies.
-						</Typography>
-						<Typography
-							variant="body1"
-							textAlign={"justify"}
-							fontSize={18}
-							mt={1}
-						>
-							I m quick learner, can pick up new tech stacks as
-							needed, always upgrading my new skills and learning
-							up-to-date new tech stack.
-						</Typography>
-					</Box>
-					<MainButton icon={<CloudDownload />}>
-						Download CV
-					</MainButton>
-				</BoxInfo>
-			</SubBox>
-		</BoxMain>
-	);
-};
-
-export default About;

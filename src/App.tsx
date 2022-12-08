@@ -1,5 +1,6 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Loader from "./components/Loader";
 import Layout from "./Layout";
 
 const materialRed = createTheme({
@@ -60,6 +61,7 @@ const materialBlue = createTheme({
 
 function App() {
 	const [theme, setTheme] = useState(materialRed);
+
 	const setThemes = (th: string) => {
 		if (th === "mred") {
 			return setTheme(materialRed);
@@ -74,6 +76,7 @@ function App() {
 			return setTheme(materialPurple);
 		}
 	};
+
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />

@@ -1,11 +1,17 @@
 import { Box, styled, Typography } from "@mui/material";
+import { useState } from "react";
 import CardPorto from "../components/CardPorto";
-
-const MainPorto = styled(Box)(({ theme }) => ({
-	padding: "50px",
-}));
+import ModalMain from "../components/ModalMain";
+import { TDesc } from "../config/Porto";
 
 const Portofolio = () => {
+	const [modal, setModal] = useState<boolean>(false);
+	const [info, setInfo] = useState<TDesc>({ info: "", nice: [] });
+
+	const infoHandler = (data: TDesc) => {
+		setInfo(data);
+		setModal(true);
+	};
 	return (
 		<MainPorto id="portofolio">
 			<Typography variant="h2" fontWeight={500} textAlign={"center"}>
@@ -15,18 +21,14 @@ const Portofolio = () => {
 				My Best Project
 			</Typography>
 
-			<Box
-				display="flex"
-				flexDirection={"row"}
-				flexWrap={"wrap"}
-				justifyContent={"center"}
-				gap={5}
-				marginTop={10}
-			>
-				<CardPorto />
-			</Box>
+			<CardPorto infoHandler={infoHandler} />
+			<ModalMain modal={modal} setModal={setModal} info={info} />
 		</MainPorto>
 	);
 };
 
 export default Portofolio;
+
+const MainPorto = styled(Box)(({ theme }) => ({
+	padding: "50px",
+}));

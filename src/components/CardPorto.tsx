@@ -1,3 +1,5 @@
+import { Info } from "@mui/icons-material";
+import GitHub from "@mui/icons-material/GitHub";
 import {
 	Button,
 	Card,
@@ -5,103 +7,90 @@ import {
 	CardContent,
 	CardMedia,
 	Link,
+	styled,
+	Tooltip,
 	Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import aimyon from "../assets/Aimyon.jpeg";
-import Js from "../assets/svg/js.svg";
-import Ts from "../assets/svg/ts.svg";
-import React from "../assets/svg/React.svg";
-import Php from "../assets/svg/Php.svg";
-import Ejs from "../assets/svg/Ejs.svg";
-import Bs from "../assets/svg/Bs.svg";
-import Rest from "../assets/svg/Rest.svg";
-import Lr from "../assets/svg/Lr.svg";
-import My from "../assets/svg/My.svg";
-import Mui from "../assets/svg/Mui.svg";
+import { dataPorto, TDesc } from "../config/Porto";
 
-const data = [
-	{
-		porto: "E Commerce",
-		thumb: "http://",
-		tech: [Php, My, Bs],
-		link: "https://github.com/livingdolls/ecomercenative-projek",
-	},
-	{
-		porto: "Point Of Sale",
-		thumb: "http://",
-		tech: [Ejs, Ts, React, Mui, My, Rest],
-		link: "https://github.com/livingdolls/react-typescript-pos",
-	},
-	{
-		porto: "Information Retrieval",
-		thumb: "http://",
-		tech: [Php, My, React, Mui, Rest],
-		link: "https://github.com/livingdolls/frontend-information-retrieval",
-	},
-	{
-		porto: "Express JWT Auth",
-		thumb: "http://",
-		tech: [Ejs, My, Rest],
-		link: "https://github.com/livingdolls/express-jwt-auth",
-	},
-	{
-		porto: "ToDo App",
-		thumb: "https://raw.githubusercontent.com/livingdolls/todoApp/main/src/img/Desain%20tanpa%20judul.png",
-		tech: [React, Mui],
-		link: "https://github.com/livingdolls/todoApp",
-	},
-	{
-		porto: "Youtube Clone UI",
-		thumb: "https://raw.githubusercontent.com/livingdolls/youtube-material/main/src/img/Screenshoot/Light%20large.png",
-		tech: [React, Mui],
-		link: "https://github.com/livingdolls/youtube-material",
-	},
-	{
-		porto: "Twitter Clone UI",
-		thumb: "https://raw.githubusercontent.com/livingdolls/twitter-material/main/src/assets/Screenshoot/Twitter%20Large.png",
-		tech: [React, Mui],
-		link: "https://github.com/livingdolls/twitter-material",
-	},
-];
+type propsCard = {
+	infoHandler: (data: TDesc) => void;
+};
 
-const CardPorto: any = () => {
-	return data.map((d) => {
-		return (
-			<Card sx={{ width: 350 }} elevation={3}>
-				<CardMedia src={d.thumb} component="img" height={200} />
-				<CardContent>
-					<Typography fontWeight={500}>{d.porto}</Typography>
-					<Box
-						sx={{
-							display: "flex",
-							flexDirection: "row",
-							gap: 2,
-							mt: 1,
-						}}
-					>
-						{d.tech.map((t) => {
-							return (
-								<Box
-									component="img"
-									height={25}
-									width={25}
-									src={t}
-								/>
-							);
-						})}
-					</Box>
-				</CardContent>
-				<CardActions>
-					<Link href={d.link} target="_blank">
-						<Button variant="contained" size="small">
-							Code
-						</Button>
-					</Link>
-				</CardActions>
-			</Card>
-		);
-	});
+const CardPorto: React.FC<propsCard> = ({ infoHandler }) => {
+	return (
+		<Box
+			display="flex"
+			flexDirection={"row"}
+			flexWrap={"wrap"}
+			justifyContent={"center"}
+			alignItems={"flex-start"}
+			gap={5}
+			marginTop={10}
+		>
+			{dataPorto.map((d) => {
+				return (
+					<Card sx={{ width: 350 }} elevation={3} key={d.porto}>
+						<CardMedia src={d.thumb} component="img" height={200} />
+						<CardContent>
+							<Typography fontWeight={500}>{d.porto}</Typography>
+							<Box
+								sx={{
+									display: "flex",
+									flexDirection: "row",
+									flexWrap: "wrap",
+									gap: 1,
+									mt: 1,
+								}}
+							>
+								{d.tech.map((t) => {
+									return <TechTypo key={t}>{t}</TechTypo>;
+								})}
+							</Box>
+						</CardContent>
+						<CardActions
+							sx={{
+								display: "flex",
+								flexDirection: "row",
+								justifyContent: "space-between",
+							}}
+						>
+							<Tooltip title="view on github">
+								<Link href={d.link} target="_blank">
+									<Button variant="text" size="small">
+										<GitHub />
+									</Button>
+								</Link>
+							</Tooltip>
+
+							<Tooltip title="info project">
+								<Button
+									variant="text"
+									size="small"
+									onClick={() => infoHandler(d.desc)}
+								>
+									<Info />
+								</Button>
+							</Tooltip>
+						</CardActions>
+					</Card>
+				);
+			})}
+		</Box>
+	);
 };
 
 export default CardPorto;
+
+const TechTypo = styled(Typography)(({ theme }) => ({
+	backgroundColor: [theme.palette.primary.main],
+	padding: 2,
+	paddingRight: 5,
+	paddingLeft: 5,
+	borderRadius: 8,
+	fontSize: "15px",
+	color: "#fff",
+	[theme.breakpoints.up("xs")]: {},
+	[theme.breakpoints.up("md")]: {},
+}));
