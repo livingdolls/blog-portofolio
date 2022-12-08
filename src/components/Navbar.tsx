@@ -1,4 +1,5 @@
 import { AppBar, Box, Link, styled, Typography } from "@mui/material";
+import ColorLens from "@mui/icons-material/ColorLens";
 
 const menu = [
 	{ menu: "Home", link: "hero" },
@@ -7,6 +8,49 @@ const menu = [
 	{ menu: "Portofolio", link: "portofolio" },
 	{ menu: "Contact", link: "contact" },
 ];
+
+export type propsNavbar = {
+	sendLink: (comp: string) => void;
+	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Navbar: React.FC<propsNavbar> = ({ sendLink, setOpen }) => {
+	return (
+		<Header elevation={0} color="secondary">
+			<Nav>
+				<Box>
+					<Typography variant="h5" fontWeight={500} color={"primary"}>
+						Setiawan Nanang
+					</Typography>
+				</Box>
+
+				<Menu>
+					{menu.map((e) => {
+						return (
+							<LinkMenu
+								onClick={() => sendLink(e.link)}
+								underline="none"
+								key={e.link}
+							>
+								{e.menu}
+							</LinkMenu>
+						);
+					})}
+					<LinkMenu
+						onClick={() => setOpen(true)}
+						underline="none"
+						key={"modal"}
+						sx={{ mt: 1 }}
+					>
+						<ColorIcon />
+					</LinkMenu>
+				</Menu>
+			</Nav>
+		</Header>
+	);
+};
+
+export default Navbar;
 
 const Header = styled(AppBar)(({ theme }) => ({
 	position: "sticky",
@@ -45,36 +89,6 @@ const LinkMenu = styled(Link)(({ theme }) => ({
 	},
 }));
 
-export type propsNavbar = {
-	sendLink: (comp: string) => void;
-};
-
-const Navbar: React.FC<propsNavbar> = ({ sendLink }) => {
-	return (
-		<Header elevation={0} color="secondary">
-			<Nav>
-				<Box>
-					<Typography variant="h5" fontWeight={500} color={"primary"}>
-						Setiawan Nanang
-					</Typography>
-				</Box>
-
-				<Menu>
-					{menu.map((e) => {
-						return (
-							<LinkMenu
-								onClick={() => sendLink(e.link)}
-								underline="none"
-								key={e.link}
-							>
-								{e.menu}
-							</LinkMenu>
-						);
-					})}
-				</Menu>
-			</Nav>
-		</Header>
-	);
-};
-
-export default Navbar;
+const ColorIcon = styled(ColorLens)(({ theme }) => ({
+	fontSize: 25,
+}));

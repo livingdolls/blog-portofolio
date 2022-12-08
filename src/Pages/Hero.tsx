@@ -13,7 +13,99 @@ import Phone from "@mui/icons-material/Phone";
 import Github from "@mui/icons-material/GitHub";
 import Facebook from "@mui/icons-material/Facebook";
 import Linkedin from "@mui/icons-material/LinkedIn";
-import { propsNavbar } from "../components/Navbar";
+
+type propsNavbar = {
+	sendLink: (comp: string) => void;
+};
+const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
+	return (
+		<MainHero id="hero">
+			<BoxMedia sx={{ width: "10%" }}>
+				<SuBoxMedia>
+					<Link
+						href="https://github.com/livingdolls"
+						target={"_blank"}
+					>
+						<Tooltip title="Github" arrow placement="right">
+							<GithubIcon />
+						</Tooltip>
+					</Link>
+
+					<Link
+						href="https://web.facebook.com/profile.php?id=100007789293041"
+						target={"_blank"}
+					>
+						<Tooltip title="Facebook" arrow placement="right">
+							<FacebookIcon />
+						</Tooltip>
+					</Link>
+
+					<Link
+						href="https://www.linkedin.com/in/nanang-setiawaan/"
+						target={"_blank"}
+					>
+						<Tooltip title="Linkedin" arrow placement="right">
+							<LinkedinIcon />
+						</Tooltip>
+					</Link>
+				</SuBoxMedia>
+			</BoxMedia>
+
+			{/* About Me */}
+			<BoxAbout sx={{ width: "55%" }}>
+				<Box display={"flex"} flexDirection="column" gap={4}>
+					<Box>
+						<NamaTypo>Hi,</NamaTypo>
+						<NamaTypo sx={{ display: "inline-block" }}>
+							I'm Setiawan
+						</NamaTypo>
+						<NamaTypo
+							sx={{
+								display: "inline-block",
+								ml: { sm: ".5rem" },
+							}}
+							color="primary"
+						>
+							Nanang
+						</NamaTypo>
+					</Box>
+
+					<Divider textAlign="right" sx={{ width: "50%" }}>
+						<Typography variant="h5">
+							FULLSTACK WEB DEVELOPER
+						</Typography>
+					</Divider>
+
+					<Typography variant="h6" fontWeight={400}>
+						I'm from Semarang and i'm a fullstack web developer with
+						a passion for solving problems and learning new things.
+						I've been freelancing for the last 2 years, and right
+						now i am looking forward to working with you!.
+					</Typography>
+					<Link onClick={() => sendLink("contact")}>
+						<MainButton icon={<Phone />}>Contact Me</MainButton>
+					</Link>
+				</Box>
+			</BoxAbout>
+
+			{/* Photo */}
+			<BoxPhoto>
+				<Box display="flex" justifyContent={"center"}>
+					<BorderImg>
+						<img
+							src={aimyon}
+							alt={"photo"}
+							height={400}
+							width={300}
+						/>
+					</BorderImg>
+				</Box>
+			</BoxPhoto>
+		</MainHero>
+	);
+};
+
+export default Hero;
 
 const MainHero = styled(Box)(({ theme }) => ({
 	minHeight: "95vh",
@@ -113,93 +205,3 @@ const LinkedinIcon = styled(Linkedin)(({ theme }) => ({
 	color: [theme.palette.primary.main],
 	fontSize: 50,
 }));
-
-const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
-	return (
-		<MainHero id="hero">
-			<BoxMedia sx={{ width: "10%" }}>
-				<SuBoxMedia>
-					<Link
-						href="https://github.com/livingdolls"
-						target={"_blank"}
-					>
-						<Tooltip title="Github" arrow placement="right">
-							<GithubIcon />
-						</Tooltip>
-					</Link>
-
-					<Link
-						href="https://web.facebook.com/profile.php?id=100007789293041"
-						target={"_blank"}
-					>
-						<Tooltip title="Facebook" arrow placement="right">
-							<FacebookIcon />
-						</Tooltip>
-					</Link>
-
-					<Link
-						href="https://www.linkedin.com/in/nanang-setiawaan/"
-						target={"_blank"}
-					>
-						<Tooltip title="Linkedin" arrow placement="right">
-							<LinkedinIcon />
-						</Tooltip>
-					</Link>
-				</SuBoxMedia>
-			</BoxMedia>
-
-			{/* About Me */}
-			<BoxAbout sx={{ width: "55%" }}>
-				<Box display={"flex"} flexDirection="column" gap={4}>
-					<Box>
-						<NamaTypo>Hi,</NamaTypo>
-						<NamaTypo sx={{ display: "inline-block" }}>
-							I'm Setiawan
-						</NamaTypo>
-						<NamaTypo
-							sx={{
-								display: "inline-block",
-								ml: { sm: ".5rem" },
-							}}
-							color="primary"
-						>
-							Nanang
-						</NamaTypo>
-					</Box>
-
-					<Divider textAlign="right" sx={{ width: "50%" }}>
-						<Typography variant="h5">
-							FULLSTACK WEB DEVELOPER
-						</Typography>
-					</Divider>
-
-					<Typography variant="h6" fontWeight={400}>
-						I'm from Semarang and i'm a fullstack web developer with
-						a passion for solving problems and learning new things.
-						I've been freelancing for the last 2 years, and right
-						now i am looking forward to working with you!.
-					</Typography>
-					<Link onClick={() => sendLink("contact")}>
-						<MainButton icon={<Phone />}>Contact Me</MainButton>
-					</Link>
-				</Box>
-			</BoxAbout>
-
-			{/* Photo */}
-			<BoxPhoto>
-				<Box display="flex" justifyContent={"center"}>
-					<BorderImg>
-						<img
-							src={aimyon}
-							alt={"photo"}
-							height={400}
-							width={300}
-						/>
-					</BorderImg>
-				</Box>
-			</BoxPhoto>
-		</MainHero>
-	);
-};
-
-export default Hero;
