@@ -25,6 +25,7 @@ const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
 					<Link
 						href="https://github.com/livingdolls"
 						target={"_blank"}
+						sx={{ textDecoration: "none" }}
 					>
 						<Tooltip title="Github" arrow placement="right">
 							<GithubIcon />
@@ -34,6 +35,7 @@ const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
 					<Link
 						href="https://web.facebook.com/profile.php?id=100007789293041"
 						target={"_blank"}
+						sx={{ textDecoration: "none" }}
 					>
 						<Tooltip title="Facebook" arrow placement="right">
 							<FacebookIcon />
@@ -43,6 +45,7 @@ const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
 					<Link
 						href="https://www.linkedin.com/in/nanang-setiawaan/"
 						target={"_blank"}
+						sx={{ textDecoration: "none" }}
 					>
 						<Tooltip title="Linkedin" arrow placement="right">
 							<LinkedinIcon />
@@ -82,7 +85,10 @@ const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
 						I've been freelancing for the last 2 years, and right
 						now i am looking forward to working with you!.
 					</Typography>
-					<Link onClick={() => sendLink("contact")}>
+					<Link
+						onClick={() => sendLink("contact")}
+						sx={{ textDecoration: "none" }}
+					>
 						<MainButton icon={<Phone />}>Contact Me</MainButton>
 					</Link>
 				</Box>
