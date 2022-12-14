@@ -1,4 +1,4 @@
-import { Box, styled, Typography } from "@mui/material";
+import { Box, Link, styled, Typography } from "@mui/material";
 import foto from "../assets/foto.jpg";
 import MainButton from "../components/Button";
 import CloudDownload from "@mui/icons-material/CloudDownload";
@@ -90,9 +90,17 @@ const About = () => {
 							up-to-date new tech stack.
 						</Typography>
 					</Box>
-					<MainButton icon={<CloudDownload />}>
-						Download CV
-					</MainButton>
+					<Link
+						href={
+							"https://drive.google.com/file/d/16NHwUP8QJPV8sVjuDZXU_kefBOM3iP82/view"
+						}
+						target={"_blank"}
+						sx={{ textDecoration: "none" }}
+					>
+						<MainButton icon={<CloudDownload />}>
+							Download CV
+						</MainButton>
+					</Link>
 				</BoxInfo>
 			</SubBox>
 		</BoxMain>

@@ -12,7 +12,7 @@ export type TDataPorto = {
 export const dataPorto = [
 	{
 		porto: "E Commerce",
-		thumb: "https://raw.githubusercontent.com/livingdolls/twitter-material/main/src/assets/Screenshoot/Twitter%20Large.png",
+		thumb: "https://raw.githubusercontent.com/livingdolls/ecomercenative-projek/master/img/ecommerce.png",
 		tech: ["php", "mysql", "boostrap"],
 		link: "https://github.com/livingdolls/ecomercenative-projek",
 		desc: {
@@ -31,7 +31,7 @@ export const dataPorto = [
 	},
 	{
 		porto: "Point Of Sale",
-		thumb: "https://raw.githubusercontent.com/livingdolls/twitter-material/main/src/assets/Screenshoot/Twitter%20Large.png",
+		thumb: "https://raw.githubusercontent.com/livingdolls/react-typescript-pos/main/src/assets/Pont-of-sale.png",
 		tech: [
 			"express-js",
 			"typescript",
@@ -57,7 +57,7 @@ export const dataPorto = [
 	},
 	{
 		porto: "Information Retrieval",
-		thumb: "https://raw.githubusercontent.com/livingdolls/twitter-material/main/src/assets/Screenshoot/Twitter%20Large.png",
+		thumb: "https://raw.githubusercontent.com/livingdolls/frontend-information-retrieval/main/src/img/Information-retrieval.png",
 		tech: ["php", "mysql", "react-js", "material-ui", "rest-api"],
 		link: "https://github.com/livingdolls/frontend-information-retrieval",
 		desc: {
@@ -75,7 +75,7 @@ export const dataPorto = [
 	},
 	{
 		porto: "Express JWT Auth",
-		thumb: "https://raw.githubusercontent.com/livingdolls/twitter-material/main/src/assets/Screenshoot/Twitter%20Large.png",
+		thumb: "https://raw.githubusercontent.com/livingdolls/express-jwt-auth/main/Jwt.png",
 		tech: ["express-js", "mysql", "rest-api"],
 		link: "https://github.com/livingdolls/express-jwt-auth",
 		desc: {
