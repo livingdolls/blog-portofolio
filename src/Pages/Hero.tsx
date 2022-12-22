@@ -7,12 +7,12 @@ import {
 	Tooltip,
 	Typography,
 } from "@mui/material";
-import aimyon from "../assets/Aimyon.jpeg";
 import MainButton from "../components/Button";
 import Phone from "@mui/icons-material/Phone";
 import Github from "@mui/icons-material/GitHub";
 import Facebook from "@mui/icons-material/Facebook";
 import Linkedin from "@mui/icons-material/LinkedIn";
+import CodeOffIcon from "@mui/icons-material/CodeOff";
 
 type propsNavbar = {
 	sendLink: (comp: string) => void;
@@ -98,12 +98,7 @@ const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
 			<BoxPhoto>
 				<Box display="flex" justifyContent={"center"}>
 					<BorderImg>
-						<img
-							src={aimyon}
-							alt={"photo"}
-							height={400}
-							width={300}
-						/>
+						<CodeOffIcon sx={{ height: 400, width: 300 }} />
 					</BorderImg>
 				</Box>
 			</BoxPhoto>
