@@ -11,25 +11,6 @@ export type TDataPorto = {
 
 export const dataPorto = [
 	{
-		porto: "E Commerce",
-		thumb: "https://raw.githubusercontent.com/livingdolls/ecomercenative-projek/master/img/ecommerce.png",
-		tech: ["php", "mysql", "boostrap"],
-		link: "https://github.com/livingdolls/ecomercenative-projek",
-		desc: {
-			info: "E-commerce is a process of transaction of goods or services through information systems that utilize information technology",
-			nice: [
-				"Responsive UI for desktop and mobile display",
-				"Multi role admin & user",
-				"Management product features",
-				"Complete and real time sales reports",
-				"Product search features",
-				"Product detail features",
-				"Shopping cart features",
-				"etc",
-			],
-		},
-	},
-	{
 		porto: "Point Of Sale",
 		thumb: "https://raw.githubusercontent.com/livingdolls/react-typescript-pos/main/src/assets/Pont-of-sale.png",
 		tech: [
@@ -74,16 +55,64 @@ export const dataPorto = [
 		},
 	},
 	{
-		porto: "Express JWT Auth",
+		porto: "Budget Management App",
+		thumb: "https://raw.githubusercontent.com/livingdolls/react-budget-app/main/src/assets/screenshoot/Home%20Page.png",
+		tech: [
+			"react-js",
+			"tailwind",
+			"typescript",
+			"express",
+			"mysql",
+			"prisma",
+			"mysql",
+		],
+		link: "https://github.com/livingdolls/react-budget-app",
+		desc: {
+			info: "Budget management app is an application to manage finances. You can record income, expense plans, expenses, and more.",
+			nice: [
+				"Responsive UI for mobile, tablet, and desktop",
+				"JWT Auth",
+				"Multi User",
+				"Management Income",
+				"Management Expense Plan",
+				"Management Expense",
+				"ETC",
+			],
+		},
+	},
+	{
+		porto: "E Commerce",
+		thumb: "https://raw.githubusercontent.com/livingdolls/ecomercenative-projek/master/img/ecommerce.png",
+		tech: ["php", "mysql", "boostrap"],
+		link: "https://github.com/livingdolls/ecomercenative-projek",
+		desc: {
+			info: "E-commerce is a process of transaction of goods or services through information systems that utilize information technology",
+			nice: [
+				"Responsive UI for desktop and mobile display",
+				"Multi role admin & user",
+				"Management product features",
+				"Complete and real time sales reports",
+				"Product search features",
+				"Product detail features",
+				"Shopping cart features",
+				"etc",
+			],
+		},
+	},
+	{
+		porto: "Express Auth Cron Job",
 		thumb: "https://raw.githubusercontent.com/livingdolls/express-jwt-auth/main/Jwt.png",
 		tech: ["express-js", "mysql", "rest-api"],
 		link: "https://github.com/livingdolls/express-jwt-auth",
 		desc: {
-			info: "JWT is a token in the form of a string It consists of three parts: header, payload and signature used for the authentication process and	information exchange",
+			info: "JWT is a token in the form of a string It consists of three parts: header, payload and signature used for the authentication process and	information exchange.",
 			nice: [
 				"Using JSON web token",
 				"Using bcrypt hash password",
-				"Multi role admin and user",
+				"Node Mailer",
+				"Cron Job Email Validation",
+				"Cron Job Send OTP Activation",
+				"Change Email",
 			],
 		},
 	},
@@ -108,19 +137,6 @@ export const dataPorto = [
 		thumb: "https://raw.githubusercontent.com/livingdolls/youtube-material/main/src/img/Screenshoot/Light%20large.png",
 		tech: ["react-js", "material-ui"],
 		link: "https://github.com/livingdolls/youtube-material",
-		desc: {
-			info: "ui clone is the process of duplicating the ui as closely as the original",
-			nice: [
-				"Responsive UI for mobile, tablet, and desktop",
-				"Dark mode and light mode",
-			],
-		},
-	},
-	{
-		porto: "Twitter Clone UI",
-		thumb: "https://raw.githubusercontent.com/livingdolls/twitter-material/main/src/assets/Screenshoot/Twitter%20Large.png",
-		tech: ["react-js", "material-ui"],
-		link: "https://github.com/livingdolls/twitter-material",
 		desc: {
 			info: "ui clone is the process of duplicating the ui as closely as the original",
 			nice: [
