@@ -5,6 +5,35 @@ import CloudDownload from "@mui/icons-material/CloudDownload";
 import PsychologyAlt from "@mui/icons-material/PsychologyAlt";
 import Coffee from "@mui/icons-material/Coffee";
 import Folder from "@mui/icons-material/FolderCopy";
+import { motion } from "framer-motion";
+
+const boxMotion = {
+	hidden: {
+		x: -100,
+		opacity: 0,
+	},
+	visible: {
+		x: 0,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			bounce: 0.5,
+			duration: 1,
+			staggerChildren: 0.3,
+		},
+	},
+};
+
+const framerCard = {
+	hidden: {
+		x: -10,
+		opacity: 0,
+	},
+	visible: {
+		x: 0,
+		opacity: 1,
+	},
+};
 
 const About = () => {
 	return (
@@ -16,93 +45,117 @@ const About = () => {
 				Introduce Myself
 			</Typography>
 
-			<SubBox>
-				<ImageBorder>
-					<Box
-						component="img"
-						alt="profil"
-						src={foto}
-						sx={{
-							borderRadius: "30px",
-							height: { xs: "300px", lg: "500px" },
-							width: { xs: "300px", lg: "500px" },
-						}}
-					/>
-				</ImageBorder>
+			<motion.div
+				variants={boxMotion}
+				initial={"hidden"}
+				whileInView={"visible"}
+			>
+				<SubBox>
+					<ImageBorder>
+						<Box
+							component="img"
+							alt="profil"
+							src={foto}
+							sx={{
+								borderRadius: "30px",
+								height: { xs: "300px", lg: "500px" },
+								width: { xs: "300px", lg: "500px" },
+							}}
+						/>
+					</ImageBorder>
 
-				<BoxInfo>
-					<BoxSubInfo>
-						<BoxIcon>
-							<FolderIcon />
+					<BoxInfo>
+						<BoxSubInfo>
+							<motion.div variants={framerCard}>
+								<BoxIcon>
+									<FolderIcon />
 
-							<Typography fontSize={20} fontWeight={500}>
-								20+
-							</Typography>
-							<Typography fontSize={15} fontWeight={500}>
-								Procject
-							</Typography>
-						</BoxIcon>
+									<Typography fontSize={20} fontWeight={500}>
+										20+
+									</Typography>
+									<Typography fontSize={15} fontWeight={500}>
+										Procject
+									</Typography>
+								</BoxIcon>
+							</motion.div>
 
-						<BoxIcon>
-							<CoffeIcon />
-							<Typography fontSize={20} fontWeight={500}>
-								100+
-							</Typography>
-							<Typography fontSize={15} fontWeight={500}>
-								Cup Coffe
-							</Typography>
-						</BoxIcon>
-						<BoxIcon>
-							<PsychologyIcon />
+							<motion.div variants={framerCard}>
+								<BoxIcon>
+									<CoffeIcon />
+									<Typography fontSize={20} fontWeight={500}>
+										100+
+									</Typography>
+									<Typography fontSize={15} fontWeight={500}>
+										Cup Coffe
+									</Typography>
+								</BoxIcon>
+							</motion.div>
 
-							<Typography fontSize={20} fontWeight={500}>
-								12/7
-							</Typography>
-							<Typography fontSize={15} fontWeight={500}>
-								Learning
-							</Typography>
-						</BoxIcon>
-					</BoxSubInfo>
-					<Box>
-						<Typography
-							variant="body1"
-							textAlign={"justify"}
-							fontSize={18}
-						>
-							You can call me Awan or Nanang as comfortable as you
-							like. I am 21 years old and a Final Semester
-							Informatics Engineering Student from Unisbank
-							Semarang. I have experience in creating websites
-							more than 3 year & completed more than 20 projects
-							using modern technology. I specialize in building
-							mobile responsive front-end UI applications that
-							connect with API's and PHP/Express backend
-							technologies.
-						</Typography>
-						<Typography
-							variant="body1"
-							textAlign={"justify"}
-							fontSize={18}
-							mt={1}
-						>
-							I m quick learner, can pick up new tech stacks as
-							needed, always upgrading my new skills and learning
-							up-to-date new tech stack.
-						</Typography>
-					</Box>
-					<Link
-						href={
-							"https://drive.google.com/file/d/16NHwUP8QJPV8sVjuDZXU_kefBOM3iP82/view"
-						}
-						target={"_blank"}
-						sx={{ textDecoration: "none" }}
-					>
-						<MainButton icon={<CloudDownload />}>
-							Download CV
-						</MainButton>
-					</Link>
-				</BoxInfo>
-			</SubBox>
+							<motion.div variants={framerCard}>
+								<BoxIcon>
+									<PsychologyIcon />
+
+									<Typography
+										variant="body1"
+										fontSize={20}
+										fontWeight={500}
+									>
+										12/7
+									</Typography>
+									<Typography fontSize={15} fontWeight={500}>
+										Learning
+									</Typography>
+								</BoxIcon>
+							</motion.div>
+						</BoxSubInfo>
+
+						<Box>
+							<motion.div variants={framerCard}>
+								<Typography
+									variant="body1"
+									textAlign={"justify"}
+									fontSize={18}
+								>
+									You can call me Awan or Nanang as
+									comfortable as you like. I am 21 years old
+									and a Final Semester Informatics Engineering
+									Student from Unisbank Semarang. I have
+									experience in creating websites more than 3
+									year & completed more than 20 projects using
+									modern technology. I specialize in building
+									mobile responsive front-end UI applications
+									that connect with API's and PHP/Express
+									backend technologies.
+								</Typography>
+								<Typography
+									variant="body1"
+									textAlign={"justify"}
+									fontSize={18}
+									mt={1}
+								>
+									I m quick learner, can pick up new tech
+									stacks as needed, always upgrading my new
+									skills and learning up-to-date new tech
+									stack.
+								</Typography>
+							</motion.div>
+						</Box>
+						<motion.div variants={framerCard}>
+							<Link
+								href={
+									"https://drive.google.com/file/d/16NHwUP8QJPV8sVjuDZXU_kefBOM3iP82/view"
+								}
+								target={"_blank"}
+								sx={{ textDecoration: "none" }}
+							>
+								<MainButton icon={<CloudDownload />}>
+									Download CV
+								</MainButton>
+							</Link>
+						</motion.div>
+					</BoxInfo>
+				</SubBox>
+			</motion.div>
 		</BoxMain>
 	);
 };
@@ -110,7 +163,8 @@ const About = () => {
 export default About;
 
 const BoxMain = styled(Box)(({ theme }) => ({
-	minHeight: "80vh",
+	minHeight: "95vh",
+	paddingTop: "100px",
 	[theme.breakpoints.down("sm")]: {
 		marginTop: "50px",
 	},
