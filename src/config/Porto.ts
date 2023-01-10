@@ -64,7 +64,7 @@ export const dataPorto = [
 			"express",
 			"mysql",
 			"prisma",
-			"mysql",
+			"tan-query",
 		],
 		link: "https://github.com/livingdolls/react-budget-app",
 		desc: {

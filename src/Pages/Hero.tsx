@@ -13,96 +13,154 @@ import Github from "@mui/icons-material/GitHub";
 import Facebook from "@mui/icons-material/Facebook";
 import Linkedin from "@mui/icons-material/LinkedIn";
 import CodeOffIcon from "@mui/icons-material/CodeOff";
+import { motion } from "framer-motion";
 
 type propsNavbar = {
 	sendLink: (comp: string) => void;
 };
+
+const pageMotion = {
+	hidden: {
+		opacity: 0,
+		x: -200,
+	},
+	visible: {
+		x: 0,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			bounce: 0.5,
+			duration: 1,
+			staggerChildren: 0.2,
+		},
+	},
+};
+
+const cardSocialMedia = {
+	hidden: {
+		opacity: 0,
+		y: -200,
+	},
+	visible: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			bounce: 0.5,
+			duration: 1,
+		},
+	},
+};
+
 const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
 	return (
-		<MainHero id="hero">
-			<BoxMedia sx={{ width: "10%" }}>
-				<SuBoxMedia>
-					<Link
-						href="https://github.com/livingdolls"
-						target={"_blank"}
-						sx={{ textDecoration: "none" }}
-					>
-						<Tooltip title="Github" arrow placement="right">
-							<GithubIcon />
-						</Tooltip>
-					</Link>
+		<motion.div
+			variants={pageMotion}
+			whileInView={"visible"}
+			initial={"hidden"}
+			viewport={{ once: false, amount: 0.5 }}
+		>
+			<MainHero id="hero">
+				<BoxMedia sx={{ width: "10%" }}>
+					<SuBoxMedia>
+						<motion.div variants={cardSocialMedia}>
+							<Link
+								href="https://github.com/livingdolls"
+								target={"_blank"}
+								sx={{ textDecoration: "none" }}
+							>
+								<Tooltip title="Github" arrow placement="right">
+									<GithubIcon />
+								</Tooltip>
+							</Link>
+						</motion.div>
 
-					<Link
-						href="https://web.facebook.com/profile.php?id=100007789293041"
-						target={"_blank"}
-						sx={{ textDecoration: "none" }}
-					>
-						<Tooltip title="Facebook" arrow placement="right">
-							<FacebookIcon />
-						</Tooltip>
-					</Link>
+						<motion.div variants={cardSocialMedia}>
+							<Link
+								href="https://web.facebook.com/profile.php?id=100007789293041"
+								target={"_blank"}
+								sx={{ textDecoration: "none" }}
+							>
+								<Tooltip
+									title="Facebook"
+									arrow
+									placement="right"
+								>
+									<FacebookIcon />
+								</Tooltip>
+							</Link>
+						</motion.div>
 
-					<Link
-						href="https://www.linkedin.com/in/nanang-setiawaan/"
-						target={"_blank"}
-						sx={{ textDecoration: "none" }}
-					>
-						<Tooltip title="Linkedin" arrow placement="right">
-							<LinkedinIcon />
-						</Tooltip>
-					</Link>
-				</SuBoxMedia>
-			</BoxMedia>
+						<motion.div variants={cardSocialMedia}>
+							<Link
+								href="https://www.linkedin.com/in/nanang-setiawaan/"
+								target={"_blank"}
+								sx={{ textDecoration: "none" }}
+							>
+								<Tooltip
+									title="Linkedin"
+									arrow
+									placement="right"
+								>
+									<LinkedinIcon />
+								</Tooltip>
+							</Link>
+						</motion.div>
+					</SuBoxMedia>
+				</BoxMedia>
 
-			{/* About Me */}
-			<BoxAbout sx={{ width: "55%" }}>
-				<Box display={"flex"} flexDirection="column" gap={4}>
-					<Box>
-						<NamaTypo>Hi,</NamaTypo>
-						<NamaTypo sx={{ display: "inline-block" }}>
-							I'm Setiawan
-						</NamaTypo>
-						<NamaTypo
-							sx={{
-								display: "inline-block",
-								ml: { sm: ".5rem" },
-							}}
-							color="primary"
-						>
-							Nanang
-						</NamaTypo>
-					</Box>
+				{/* About Me */}
+				<BoxAbout sx={{ width: "55%" }}>
+					<Box display={"flex"} flexDirection="column" gap={4}>
+						<Box>
+							<NamaTypo>Hi,</NamaTypo>
+							<NamaTypo sx={{ display: "inline-block" }}>
+								I'm Setiawan
+							</NamaTypo>
+							<NamaTypo
+								sx={{
+									display: "inline-block",
+									ml: { sm: ".5rem" },
+								}}
+								color="primary"
+							>
+								Nanang
+							</NamaTypo>
+						</Box>
 
-					<Divider textAlign="right" sx={{ width: "50%" }}>
-						<Typography variant="h5">
-							FULLSTACK WEB DEVELOPER
+						<Divider textAlign="right" sx={{ width: "50%" }}>
+							<Typography variant="h5">
+								FULLSTACK WEB DEVELOPER
+							</Typography>
+						</Divider>
+
+						<Typography variant="h6" fontWeight={400}>
+							I'm from Semarang and i'm a fullstack web developer
+							with a passion for solving problems and learning new
+							things. I've been freelancing for the last 2 years,
+							and right now i am looking forward to working with
+							you!.
 						</Typography>
-					</Divider>
 
-					<Typography variant="h6" fontWeight={400}>
-						I'm from Semarang and i'm a fullstack web developer with
-						a passion for solving problems and learning new things.
-						I've been freelancing for the last 2 years, and right
-						now i am looking forward to working with you!.
-					</Typography>
-					<Link
-						onClick={() => sendLink("contact")}
-						sx={{ textDecoration: "none" }}
-					>
-						<MainButton icon={<Phone />}>Contact Me</MainButton>
-					</Link>
-				</Box>
-			</BoxAbout>
+						<Link
+							onClick={() => sendLink("contact")}
+							sx={{ textDecoration: "none" }}
+						>
+							<MainButton icon={<Phone />}>Contact Me</MainButton>
+						</Link>
+					</Box>
+				</BoxAbout>
 
-			{/* Photo */}
-			<BoxPhoto>
-				<Box display="flex" justifyContent={"center"}>
-					<BorderImg>
-						<CodeOffIcon sx={{ height: 400, width: 300 }} />
-					</BorderImg>
-				</Box>
-			</BoxPhoto>
-		</MainHero>
+				{/* Photo */}
+				<BoxPhoto>
+					<Box display="flex" justifyContent={"center"}>
+						<BorderImg>
+							<CodeOffIcon sx={{ height: 400, width: 300 }} />
+						</BorderImg>
+					</Box>
+				</BoxPhoto>
+			</MainHero>
+		</motion.div>
 	);
 };
 

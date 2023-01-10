@@ -1,6 +1,5 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { useEffect, useState } from "react";
-import Loader from "./components/Loader";
+import { useState } from "react";
 import Layout from "./Layout";
 
 const materialRed = createTheme({
@@ -14,20 +13,26 @@ const materialRed = createTheme({
 	},
 	typography: {
 		fontFamily: "Poppins",
+		allVariants: {
+			color: "rgb(31 41 55)",
+		},
 	},
 });
 
 const materialPurple = createTheme({
 	palette: {
 		background: {
-			default: "#EAECF7",
+			default: "rgb(249 250 251)",
 		},
 		primary: {
-			main: "#B87FB1",
+			main: "#a968cd",
 		},
 	},
 	typography: {
 		fontFamily: "Poppins",
+		allVariants: {
+			color: "rgb(31 41 55)",
+		},
 	},
 });
 
@@ -42,6 +47,9 @@ const materialBrown = createTheme({
 	},
 	typography: {
 		fontFamily: "Poppins",
+		allVariants: {
+			color: "rgb(31 41 55)",
+		},
 	},
 });
 
@@ -56,6 +64,9 @@ const materialBlue = createTheme({
 	},
 	typography: {
 		fontFamily: "Poppins",
+		allVariants: {
+			color: "rgb(31 41 55)",
+		},
 	},
 });
 

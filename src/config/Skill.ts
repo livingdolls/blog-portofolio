@@ -8,11 +8,12 @@ import Rest from "../assets/svg/Rest.svg";
 import Lr from "../assets/svg/Lr.svg";
 import My from "../assets/svg/My.svg";
 import Mui from "../assets/svg/Mui.svg";
+import Tl from "../assets/svg/tailwind.svg";
 
 export const SkillFrontend = [
-	{ nama: "Javascript", icon: Js },
 	{ nama: "Typescript", icon: Ts },
 	{ nama: "React JS / Next JS", icon: React },
+	{ nama: "Tailwind CSS", icon: Tl },
 	{ nama: "Material UI", icon: Mui },
 	{ nama: "Boostrap", icon: Bs },
 ];

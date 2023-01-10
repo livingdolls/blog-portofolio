@@ -57,7 +57,7 @@ const ModalTheme: React.FC<modalTheme> = ({
 							></BoxColor>
 							<BoxColor
 								onClick={() => setTheme("mpurple")}
-								sx={{ backgroundColor: "#B87FB1" }}
+								sx={{ backgroundColor: "#a968cd" }}
 							></BoxColor>
 							<BoxColor
 								onClick={() => setTheme("mbrown")}
