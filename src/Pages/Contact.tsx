@@ -8,13 +8,40 @@ import {
 	TextField,
 	Typography,
 } from "@mui/material";
-import MainButton from "../components/Button";
 import Send from "@mui/icons-material/Send";
 import Email from "@mui/icons-material/Email";
 import Telegram from "@mui/icons-material/Telegram";
 import WhatsApp from "@mui/icons-material/WhatsApp";
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
+
+const boxMotion = {
+	hidden: {
+		y: 10,
+		opacity: 0,
+	},
+	visible: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			bounce: 0.5,
+			duration: 1,
+			staggerChildren: 0.3,
+		},
+	},
+};
+
+const framerCard = {
+	hidden: {
+		x: -1000,
+	},
+	visible: {
+		x: 0,
+		opacity: 1,
+	},
+};
 
 const Contact = () => {
 	const form = useRef<HTMLFormElement | null>(null);
@@ -28,10 +55,10 @@ const Contact = () => {
 		const data: any = form.current;
 		emailjs
 			.sendForm(
-				"service_3ovadk9",
-				"template_g2xhspi",
+				import.meta.env.VITE_EMAIL_SERVICE,
+				import.meta.env.VITE_EMAIL_TEMPLATE,
 				data,
-				"gnmk6z7JRwYdHBxSh"
+				import.meta.env.VITE_EMAIL_KEY
 			)
 			.then(
 				(result) => {
@@ -63,40 +90,52 @@ const Contact = () => {
 
 			<form ref={form} onSubmit={sendMail}>
 				<MainBox>
-					<SuBox gap={3}>
-						<ContactMe>
-							<EmailIcon />
-							<Typography fontSize={20} fontWeight={500}>
-								Email
-							</Typography>
+					<motion.div
+						variants={boxMotion}
+						initial={"hidden"}
+						whileInView={"visible"}
+					>
+						<SuBox gap={3}>
+							<ContactMe>
+								<motion.div variants={framerCard}>
+									<EmailIcon />
+								</motion.div>
+								<Typography fontSize={20} fontWeight={500}>
+									Email
+								</Typography>
 
-							<Typography variant={"body1"}>
-								nanangsetiawaan@yahoo.com
-							</Typography>
-						</ContactMe>
+								<Typography variant={"body1"}>
+									nanangsetiawaan@yahoo.com
+								</Typography>
+							</ContactMe>
 
-						<ContactMe>
-							<WhatsappIcon />
-							<Typography fontSize={20} fontWeight={500}>
-								WhatsApp
-							</Typography>
+							<ContactMe>
+								<motion.div variants={framerCard}>
+									<WhatsappIcon />
+								</motion.div>
+								<Typography fontSize={20} fontWeight={500}>
+									WhatsApp
+								</Typography>
 
-							<Typography variant={"body1"}>
-								+6285729577985
-							</Typography>
-						</ContactMe>
+								<Typography variant={"body1"}>
+									+6285729577985
+								</Typography>
+							</ContactMe>
 
-						<ContactMe>
-							<TelegramIcon />
-							<Typography fontSize={20} fontWeight={500}>
-								Telegram
-							</Typography>
+							<ContactMe>
+								<motion.div variants={framerCard}>
+									<TelegramIcon />
+								</motion.div>
+								<Typography fontSize={20} fontWeight={500}>
+									Telegram
+								</Typography>
 
-							<Typography variant={"body1"}>
-								+6285729577985
-							</Typography>
-						</ContactMe>
-					</SuBox>
+								<Typography variant={"body1"}>
+									+6285729577985
+								</Typography>
+							</ContactMe>
+						</SuBox>
+					</motion.div>
 
 					<SuBox gap={3}>
 						<Typography
@@ -114,6 +153,7 @@ const Contact = () => {
 						/>
 						<SearchBox
 							name="user_email"
+							type={"email"}
 							required
 							label="Your Email"
 						/>

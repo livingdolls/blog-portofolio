@@ -70,9 +70,9 @@ const About = () => {
 								<BoxIcon>
 									<FolderIcon />
 
-									<Typography fontSize={20} fontWeight={500}>
+									<TypoIcon fontSize={20} fontWeight={500}>
 										20+
-									</Typography>
+									</TypoIcon>
 									<Typography fontSize={15} fontWeight={500}>
 										Procject
 									</Typography>
@@ -82,9 +82,9 @@ const About = () => {
 							<motion.div variants={framerCard}>
 								<BoxIcon>
 									<CoffeIcon />
-									<Typography fontSize={20} fontWeight={500}>
+									<TypoIcon fontSize={20} fontWeight={500}>
 										100+
-									</Typography>
+									</TypoIcon>
 									<Typography fontSize={15} fontWeight={500}>
 										Cup Coffe
 									</Typography>
@@ -95,13 +95,9 @@ const About = () => {
 								<BoxIcon>
 									<PsychologyIcon />
 
-									<Typography
-										variant="body1"
-										fontSize={20}
-										fontWeight={500}
-									>
+									<TypoIcon variant="body1" fontWeight={500}>
 										12/7
-									</Typography>
+									</TypoIcon>
 									<Typography fontSize={15} fontWeight={500}>
 										Learning
 									</Typography>
@@ -216,12 +212,15 @@ const BoxInfo = styled(Box)(({ theme }) => ({
 const BoxSubInfo = styled(Box)(({ theme }) => ({
 	display: "flex",
 	flexDirection: "row",
+	justifyContent: "center",
 	[theme.breakpoints.up("md")]: {
+		justifyContent: "start",
 		gap: 25,
 	},
 
 	[theme.breakpoints.between("xs", "md")]: {
 		gap: 10,
+		flexWrap: "wrap",
 	},
 }));
 
@@ -237,6 +236,10 @@ const BoxIcon = styled(Box)(({ theme }) => ({
 	backgroundColor: "#fff",
 	boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
 	borderRadius: 5,
+	[theme.breakpoints.down("md")]: {
+		padding: 3,
+		height: "100px",
+	},
 }));
 
 const PsychologyIcon = styled(PsychologyAlt)(({ theme }) => ({
@@ -246,7 +249,7 @@ const PsychologyIcon = styled(PsychologyAlt)(({ theme }) => ({
 	},
 
 	[theme.breakpoints.between("xs", "md")]: {
-		fontSize: 40,
+		fontSize: 30,
 	},
 }));
 
@@ -257,7 +260,15 @@ const CoffeIcon = styled(Coffee)(({ theme }) => ({
 	},
 
 	[theme.breakpoints.between("xs", "md")]: {
-		fontSize: 40,
+		fontSize: 30,
+	},
+}));
+
+const TypoIcon = styled(Typography)(({ theme }) => ({
+	fontSize: 18,
+
+	[theme.breakpoints.between("xs", "md")]: {
+		fontSize: 15,
 	},
 }));
 
@@ -268,6 +279,6 @@ const FolderIcon = styled(Folder)(({ theme }) => ({
 	},
 
 	[theme.breakpoints.between("xs", "md")]: {
-		fontSize: 40,
+		fontSize: 30,
 	},
 }));
