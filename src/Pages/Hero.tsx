@@ -56,9 +56,9 @@ const Hero: React.FC<propsNavbar> = ({ sendLink }) => {
 	return (
 		<motion.div
 			variants={pageMotion}
-			whileInView={"visible"}
 			initial={"hidden"}
-			viewport={{ once: false, amount: 0.5 }}
+			whileInView={"visible"}
+			// viewport={{ once: false, amount: 0.5 }}
 		>
 			<MainHero id="hero">
 				<BoxMedia sx={{ width: "10%" }}>
